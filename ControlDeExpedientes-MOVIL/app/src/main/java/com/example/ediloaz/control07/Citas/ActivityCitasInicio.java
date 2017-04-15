@@ -3,7 +3,6 @@ package com.example.ediloaz.control07.Citas;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,14 +12,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.example.ediloaz.control07.ActivityEmpty;
 import com.example.ediloaz.control07.CommonCode;
-import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesBuscar;
-import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesInicio;
-import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesNuevo;
-import com.example.ediloaz.control07.Enfermedades.dbListadoEnfermedades;
-import com.example.ediloaz.control07.Medicos.ActivityMedicosInicio;
-import com.example.ediloaz.control07.Pacientes.ActivityPacientesInicio;
 import com.example.ediloaz.control07.R;
 
 import java.util.ArrayList;
@@ -90,12 +82,45 @@ public class ActivityCitasInicio extends CommonCode {
 
             final Cita cita = matriz_datos.get(i);
 
+
             tv1.setText(cita.getFecha());
             tv2.setText(cita.getHora());
+
             tv3.setText(cita.getMedico().getNombre());
             tv4.setText(cita.getPaciente().getNombre());
+
             button_mostrar_cita.setText("Mostrar");
             button_editar_cita.setText("Editar");
+
+            button_mostrar_cita.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(ActivityCitasInicio.this, ActivityCitasVista.class);
+
+                    intent.putExtra("id", cita.getId());
+                    intent.putExtra("fecha", cita.getFecha());
+                    intent.putExtra("hora", cita.getHora());
+                    intent.putExtra("medico",cita.getMedico().getNombre());
+                    intent.putExtra("paciente",cita.getPaciente().getNombre());
+                    startActivity(intent);
+                }
+            });
+
+            button_editar_cita.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(ActivityCitasInicio.this, ActivityCitasEditar.class);
+
+                    intent.putExtra("id", cita.getId());
+                    intent.putExtra("fecha", cita.getFecha());
+                    intent.putExtra("hora", cita.getHora());
+                    intent.putExtra("medico",cita.getMedico().getNombre());
+                    intent.putExtra("paciente",cita.getPaciente().getNombre());
+                    startActivity(intent);
+                }
+            });
+
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                 button_mostrar_cita.setAllCaps(false);
                 button_editar_cita.setAllCaps(false);

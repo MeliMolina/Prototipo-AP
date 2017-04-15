@@ -17,7 +17,7 @@ public class ActivityMedicosVista extends CommonCode {
         setContentView(R.layout.activity_medico_vista);
         super.Listener();
 
-        String nombre = getIntent().getStringExtra("nombre");
+        String nombre = getIntent().getStringExtra("fecha");
         String apellido1 = getIntent().getStringExtra("apellido1");
         String apellido2 = getIntent().getStringExtra("apellido2");
         String codigo = getIntent().getStringExtra("codigo");
