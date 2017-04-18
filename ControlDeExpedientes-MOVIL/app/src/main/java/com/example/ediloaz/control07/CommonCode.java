@@ -103,6 +103,11 @@ public class CommonCode extends AppCompatActivity implements View.OnClickListene
         startActivity(intent_Ingresar);
     }
 
+    public void openCitas(Context context){
+        Intent intent_Ingresar = new Intent(context, ActivityCitasInicio.class);
+        startActivity(intent_Ingresar);
+    }
+
     public SessionManager getSession() {
         return session;
     }

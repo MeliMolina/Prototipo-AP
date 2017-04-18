@@ -56,13 +56,13 @@
                     <!--Buscar-->
                     <Button
                         android:id="@+id/button_CitasNuevo_Buscar"
-                        android:background="@drawable/button_blue"
-                        android:textColor="#FFFFFF"
-                        android:text="@string/button_buscar"
-                        android:layout_width="120dp"
+                        android:layout_width="171dp"
                         android:layout_height="wrap_content"
-                        android:textAllCaps="false"
+                        android:background="@drawable/button_blue"
                         android:fontFamily="sans-serif"
+                        android:text="@string/button_buscar"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
                         android:textSize="18sp" />
                 </LinearLayout>
 
@@ -107,6 +107,21 @@
                 </TableRow>
 
             </TableLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleLarge"
+                    android:progressDrawable="@drawable/circular_progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/progressBar"/>
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

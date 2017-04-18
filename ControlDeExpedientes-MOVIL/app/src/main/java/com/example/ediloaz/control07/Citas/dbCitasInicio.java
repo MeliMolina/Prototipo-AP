@@ -68,7 +68,6 @@ public class dbCitasInicio extends AsyncTask<String, Integer, String> {
             Log.w("LoginActivity", "Conexión");
 
             PreparedStatement stmt;
-
             stmt = conn.prepareStatement("SELECT C.fecha, C.hora, C.id, M.nombre, M.apellido1, M.apellido2, P.nombre, P.apellido1, P.apellido2 FROM cita C INNER JOIN medicos M ON C.medico_id=M.id INNER JOIN pacientes P ON C.paciente_id=P.id;");
 
 

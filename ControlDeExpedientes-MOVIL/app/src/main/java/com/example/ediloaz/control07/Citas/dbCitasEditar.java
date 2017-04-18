@@ -7,36 +7,30 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesEditar;
-import com.example.ediloaz.control07.SessionManager;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.HashMap;
 
 /**
  * Created by Administrador on 16/04/2017.
  */
 
-public class dbCitasNuevo extends AsyncTask<String, Integer, String> {
+public class dbCitasEditar extends AsyncTask<String, Integer, String> {
     private String fecha, hora,messageFinished;
     private int id;
     public boolean correctFinished;
-    private ActivityCitasNuevo2 activity;
+    private ActivityCitasEditar activity;
     private ProgressBar progressBar;
     private Connection conn;
-    private SessionManager session;
-    private HashMap<String, String> medico;
 
-    public dbCitasNuevo(ActivityCitasNuevo2 pActivity, ProgressBar pProgressBar, String pFecha, String pHora, int pId){
+    public dbCitasEditar(ActivityCitasEditar pActivity, ProgressBar pProgressBar, String pFecha, String pHora, int pId){
         fecha = pFecha;
         hora = pHora;
         activity = pActivity;
         progressBar = pProgressBar;
         id = pId;
-        session = new SessionManager(activity);
-        medico = getSession().getUserDetails();
     }
 
     @Override
@@ -46,12 +40,12 @@ public class dbCitasNuevo extends AsyncTask<String, Integer, String> {
 
         if (correctFinished == true){
             Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "4");
-            Toast.makeText(activity.getApplicationContext(),"Cita agregada exitosamente.", Toast.LENGTH_LONG).show();
-            this.activity.openCitas(this.activity.getApplicationContext());
+            Toast.makeText(activity.getApplicationContext(),"Cita actualizada exitosamente.", Toast.LENGTH_LONG).show();
+            activity.openCitas(activity.getApplicationContext());
             Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "5");
         }else{
             Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "6");
-            Toast.makeText(activity.getApplicationContext(),"No se pudo agregar la cita", Toast.LENGTH_LONG).show();
+            Toast.makeText(activity.getApplicationContext(),"Error en la actualización de la cita", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -73,12 +67,12 @@ public class dbCitasNuevo extends AsyncTask<String, Integer, String> {
             Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Conexión a la BD exitosa");
 
             PreparedStatement stmt;
-            int id_medico = Integer.parseInt(medico.get(SessionManager.KEY_ID));
-            stmt = conn.prepareStatement("INSERT INTO cita (medico_id, created_at, updated_at, " + "paciente_id, fecha," + " hora) VALUES ('" + id_medico + "',NOW(), NOW(), '" + id + "', '" + fecha+ "','" + hora + "');");
 
-            Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Consulta creada");
-            stmt.executeUpdate();
-            Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Consulta realizada");
+                stmt = conn.prepareStatement("UPDATE cita SET fecha = '" + fecha + "', hora = '" + hora + "', " +
+                        "created_at = NOW(), updated_at = NOW() WHERE id = " + id + ";");
+                Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Consulta creada");
+                stmt.executeUpdate();
+                Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Consulta realizada");
 
             correctFinished = true;
 
@@ -88,10 +82,6 @@ public class dbCitasNuevo extends AsyncTask<String, Integer, String> {
             Log.w("LoginActivity","ERROR: Conexión---" +e.getMessage());
         }
         return "";
-    }
-
-    public SessionManager getSession() {
-        return session;
     }
 
 

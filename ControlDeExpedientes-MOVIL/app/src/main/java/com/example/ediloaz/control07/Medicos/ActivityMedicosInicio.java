@@ -99,6 +99,7 @@ public class ActivityMedicosInicio extends CommonCode {
             TextView tv_nombre = new TextView(this);
             Button   button_mostrar = new Button(this);
             Button   button_editar = new Button(this);
+
             Button   button_eliminar = new Button(this);
 
             tv_codigo.setText(matriz_datos.get(i).getCodigo());
@@ -156,11 +157,11 @@ public class ActivityMedicosInicio extends CommonCode {
 
             fila.addView(tv_codigo);
             fila.addView(tv_cedula);
-            fila.addView(tv_nombre);
 
             fila.addView(button_mostrar);
             fila.addView(button_editar);
 
+            fila.addView(tv_nombre);
             fila.setPadding(0,10,0,10);
 
 

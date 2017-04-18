@@ -37,7 +37,6 @@ public class ActivityCitasInicio extends CommonCode {
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
 
-
     }
 
 
@@ -102,6 +101,10 @@ public class ActivityCitasInicio extends CommonCode {
                     intent.putExtra("hora", cita.getHora());
                     intent.putExtra("medico",cita.getMedico().getNombre());
                     intent.putExtra("paciente",cita.getPaciente().getNombre());
+                    intent.putExtra("apellido1paciente",cita.getPaciente().getApellido1());
+                    intent.putExtra("apellido2paciente",cita.getPaciente().getApellido2());
+                    intent.putExtra("apellido1medico",cita.getMedico().getApellido1());
+                    intent.putExtra("apellido2medico",cita.getMedico().getApellido2());
                     startActivity(intent);
                 }
             });
@@ -114,8 +117,6 @@ public class ActivityCitasInicio extends CommonCode {
                     intent.putExtra("id", cita.getId());
                     intent.putExtra("fecha", cita.getFecha());
                     intent.putExtra("hora", cita.getHora());
-                    intent.putExtra("medico",cita.getMedico().getNombre());
-                    intent.putExtra("paciente",cita.getPaciente().getNombre());
                     startActivity(intent);
                 }
             });

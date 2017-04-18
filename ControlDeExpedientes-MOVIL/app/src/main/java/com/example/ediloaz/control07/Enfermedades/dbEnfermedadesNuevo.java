@@ -76,8 +76,7 @@ public class dbEnfermedadesNuevo extends AsyncTask<String, Integer, String> {
             if (count>=1) {
                 correctFinished = false;
             }else{
-                stmt = conn.prepareStatement("INSERT INTO enfermedads(codigo, descripcion, created_at," +
-                        " updated_at) VALUES ('" + codigo + "','" + descripcion + "', NOW(),NOW());");
+                stmt = conn.prepareStatement("INSERT INTO enfermedads(codigo, descripcion, created_at," + " updated_at) VALUES ('" + codigo + "','" + descripcion + "', NOW(),NOW());");
                 Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Consulta creada");
                 stmt.executeUpdate();
                 Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Consulta realizada");

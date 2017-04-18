@@ -1,4 +1,26 @@
-package com.example.ediloaz.control07.Pacientes;
+package com.example.ediloaz.control07.Citas;
+
+/**
+ * Created by Administrador on 17/04/2017.
+ */
+
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
+
+import com.example.ediloaz.control07.Pacientes.ActivityPacientesBuscar;
+import com.example.ediloaz.control07.Pacientes.ActivityPacientesInicio;
+import com.example.ediloaz.control07.Pacientes.Paciente;
+import com.example.ediloaz.control07.SessionManager;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -22,7 +44,7 @@ import java.util.HashMap;
  * Created by ediloaz on 11/01/2017.
  */
 
-public class dbPacientesListado extends AsyncTask<String, Integer, String> {
+public class dbListadoPacientesCitas extends AsyncTask<String, Integer, String> {
 
     private String pass;
     private String message;
@@ -39,7 +61,7 @@ public class dbPacientesListado extends AsyncTask<String, Integer, String> {
     private SessionManager session;
     HashMap<String, String> medico;
 
-    public dbPacientesListado(Activity pActivity,ProgressBar pProgressBar,String pDescripcion){
+    public dbListadoPacientesCitas(Activity pActivity,ProgressBar pProgressBar,String pDescripcion){
         activity = pActivity;
         progressBar = pProgressBar;
         descripcion = pDescripcion;
@@ -59,7 +81,7 @@ public class dbPacientesListado extends AsyncTask<String, Integer, String> {
             if(descripcion.equals("")){
                 ((ActivityPacientesInicio)activity).llenarTabla(matriz_datos);
             }else{
-                ((ActivityPacientesBuscar)activity).llenarTabla(matriz_datos);
+                ((ActivityCitasNuevo)activity).llenarTabla(matriz_datos);
             }
 
 
@@ -137,3 +159,4 @@ public class dbPacientesListado extends AsyncTask<String, Integer, String> {
 
 
 }
+

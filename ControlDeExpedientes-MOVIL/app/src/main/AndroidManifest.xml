@@ -117,6 +117,12 @@
         <activity
             android:name=".Citas.ActivityCitasEditar"
             android:screenOrientation="landscape" />
+        <activity
+            android:name=".Citas.ActivityCitasVista"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Citas.ActivityCitasBuscar"
+            android:screenOrientation="landscape" />
         <activity android:name=".Pacientes.ActivityPacientesEditar"
             android:screenOrientation="landscape" />
         <activity android:name=".Observaciones.Pacientes.ActivityPacienteObservacionesInicio"

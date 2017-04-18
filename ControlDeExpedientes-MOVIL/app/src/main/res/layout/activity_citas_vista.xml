@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     tools:context="com.example.ediloaz.control07.Citas.ActivityCitasVista">
-    <include layout="@layout/dashboard"
-        android:layout_width="298dp"/>
+
+    <include layout="@layout/dashboard"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,8 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:weightSum="1">
+            android:paddingTop="@dimen/activity_vertical_margin">
 
             <!--Título-->
             <LinearLayout
@@ -26,8 +25,8 @@
                 android:orientation="vertical"
                 android:gravity="center">
                 <TextView
-                    android:id="@+id/text_CitasVista_title"
-                    android:text= "Información de Cita"
+                    android:id="@+id/text_PacientesVista_title"
+                    android:text="Información de la Cita"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="30sp"
@@ -45,131 +44,176 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="left"
-                android:layout_marginTop="20dp"
-                android:layout_weight="1.06">
-                <!--Imagen del médico-->
-
+                android:gravity="center_horizontal"
+                android:layout_marginTop="20dp">
+                <!--Imagen del paciente-->
+                <!--ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/login_user"/>-->
                 <!--Fila #1 y fila #2-->
+
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:gravity="left"
-                    android:orientation="vertical"
-                    android:weightSum="1">
+                    android:layout_marginRight="150dp"
+                    android:orientation="vertical">
 
                     <TextView
-
+                        android:id="@+id/text_RegistrarPaciente_nombre"
+                        android:text="Paciente"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Médico"
-                        android:textSize="18sp"
-
-                        />
+                        android:textSize="18sp" />
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
-                        android:gravity="left"
-                        android:orientation="horizontal">
+                        android:orientation="vertical"
+                        android:gravity="left">
 
                         <TextView
-                            android:id="@+id/text_data_RegistarMedico_nombre"
+                            android:id="@+id/text_data_RegistrarPaciente_name"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:hint="Nombre_paciente"/>
+
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_weight="2.53"
-                        android:gravity="left"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        >
 
+                        <!--Número de cedula-->
                         <LinearLayout
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="20dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Paciente"
-                                android:textSize="18sp" />
-
-                            <TextView
-                                android:id="@+id/text_data_RegistarPaciente_nombre"
-                                android:layout_width="200dp"
-                                android:layout_height="wrap_content"
-                                android:textSize="18sp" />
+                            android:orientation="vertical"
+                            android:layout_marginTop="@dimen/activity_vertical_margin">
                         </LinearLayout>
 
+                        <!--Nombre del médico-->
                         <LinearLayout
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="20dp"
-                            android:orientation="vertical">
-
+                            android:orientation="vertical"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            >
                             <TextView
+                                android:id="@+id/text_RegistrarMedico_nombre"
+                                android:text="Médico"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Fecha"
                                 android:textSize="18sp" />
-
                             <TextView
-                                android:id="@+id/text_data_RegistarCitas_fecha"
+                                android:id="@+id/text_data_RegistrarMedico_name"
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:textSize="18sp" />
+                                android:textSize="18sp"
+                                android:layout_marginTop="@dimen/activity_vertical_margin"
+                                android:hint="Nombre_medico"/>
                         </LinearLayout>
-
-                        <!--Número de cédula-->
+                        <!--Codigo del medico-->
                         <LinearLayout
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="20dp"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            >
 
+                        </LinearLayout>
+
+                        <!--Fecha de la cita-->
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            >
                             <TextView
-
+                                android:id="@+id/text_RegistrarCita_fecha"
+                                android:text="Fecha de Cita"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Hora"
                                 android:textSize="18sp" />
-
                             <TextView
-                                android:id="@+id/text_data_RegistarCitas_hora"
+                                android:id="@+id/text_data_RegistrarCita_date"
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:textSize="18sp"/>
-
+                                android:textSize="18sp"
+                                android:hint="0-0000-0000"/>
                         </LinearLayout>
-                        <!--Número de código de médicos-->
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
+
+                        <!--Hora de la cita-->
                         <LinearLayout
-                            android:layout_width="300dp"
+                            android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="300dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
+                            android:orientation="vertical"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            >
+                            <TextView
+                                android:id="@+id/text_RegistrarCita_hora"
+                                android:text="Hora de la Cita"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="18sp" />
+                            <TextView
+                                android:id="@+id/text_data_RegistrarCita_hour"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:textSize="18sp"
+                                android:hint="Hora"/>
                         </LinearLayout>
 
 
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        >
+
+                        <Button
+                            android:id="@+id/button_RecordatorioCita"
+                            android:background="@drawable/button_blue"
+                            android:textColor="#FFFFFF"
+                            android:text="Enviar recordatorio de cita"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAllCaps="false"
+                            android:fontFamily="sans-serif"
+                            android:textSize="18sp" />
+
+
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
 
+            <!--Fila #3-->
 
 
+            <!--Fila #4, fila #5, fila #6 y botón de Registrar-->
         </LinearLayout>
     </ScrollView>
+
+
 </LinearLayout>
