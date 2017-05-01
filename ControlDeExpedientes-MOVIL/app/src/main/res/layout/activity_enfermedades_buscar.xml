@@ -25,7 +25,7 @@
                 android:layout_height="0dp" />
             <TextView
                 android:id="@+id/text_MedicoBuscar_title"
-                android:text="@string/text_MedicosBuscar_title"
+                android:text="Buscar pacientes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="24sp" />

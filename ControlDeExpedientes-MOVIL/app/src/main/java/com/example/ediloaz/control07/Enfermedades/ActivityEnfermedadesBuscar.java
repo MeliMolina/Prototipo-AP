@@ -1,5 +1,4 @@
 package com.example.ediloaz.control07.Enfermedades;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -15,7 +14,14 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.ediloaz.control07.Citas.ActivityCitasEditar;
+import com.example.ediloaz.control07.Citas.ActivityCitasInicio;
+import com.example.ediloaz.control07.Citas.ActivityCitasVista;
 import com.example.ediloaz.control07.CommonCode;
+import com.example.ediloaz.control07.Pacientes.ActivityPacientesEditar;
+import com.example.ediloaz.control07.Pacientes.ActivityPacientesInicio;
+import com.example.ediloaz.control07.Pacientes.ActivityPacientesVista;
+import com.example.ediloaz.control07.Pacientes.Paciente;
 import com.example.ediloaz.control07.R;
 
 import java.util.ArrayList;
@@ -27,6 +33,8 @@ public class ActivityEnfermedadesBuscar extends CommonCode {
     private TableLayout tablapos;
     private Spinner spinner_list;
     private ArrayList<Enfermedad>  matriz_datos_list;
+    private Paciente paciente;
+
 
     private ProgressBar progressBar;
 
@@ -87,12 +95,30 @@ public class ActivityEnfermedadesBuscar extends CommonCode {
             Button   button_mostrar = new Button(this);
             Button   button_editar = new Button(this);
             Button   button_eliminar = new Button(this);
-            tv1.setText(matriz_datos.get(i).getCodigo());
-            tv2.setText(matriz_datos.get(i).getDescripcion());
+
+            tv1.setText(matriz_datos.get(i).getDescripcion());
+            tv2.setText(matriz_datos.get(i).getCodigo());
+
             button_mostrar.setText("Mostrar");
             button_editar.setText("Editar");
             button_eliminar.setText("Eliminar");
 
+            button_mostrar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(ActivityEnfermedadesBuscar.this, ActivityPacientesVista.class);
+
+                    startActivity(intent);
+                }
+            });
+
+            button_editar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(ActivityEnfermedadesBuscar.this, ActivityPacientesEditar.class);
+                    startActivity(intent);
+                }
+            });
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                 button_mostrar.setAllCaps(false);

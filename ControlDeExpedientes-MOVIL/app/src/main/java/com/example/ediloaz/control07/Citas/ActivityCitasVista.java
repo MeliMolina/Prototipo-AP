@@ -1,10 +1,13 @@
 package com.example.ediloaz.control07.Citas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ediloaz.control07.CommonCode;
+import com.example.ediloaz.control07.Observaciones.Pacientes.ActivityPacienteObservacionesInicio;
 import com.example.ediloaz.control07.R;
 
 /**
@@ -14,6 +17,9 @@ import com.example.ediloaz.control07.R;
 public class ActivityCitasVista extends CommonCode {
     private String paciente_nombre;
     private String medico_nombre;
+    private Button correo;
+    private String fecha, hora, medico, paciente, apellido1paciente, apellido2paciente, apellido1medico, apellido2medico;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,18 +27,18 @@ public class ActivityCitasVista extends CommonCode {
         setContentView(R.layout.activity_citas_vista);
         super.Listener();
 
-        String fecha = getIntent().getStringExtra("fecha");
-        String hora = getIntent().getStringExtra("hora");
-        String medico = getIntent().getStringExtra("medico");
-        String paciente = getIntent().getStringExtra("paciente");
-        String apellido1paciente = getIntent().getStringExtra("apellido1paciente");
-        String apellido2paciente = getIntent().getStringExtra("apellido2paciente");
-        String apellido1medico = getIntent().getStringExtra("apellido1medico");
-        String apellido2medico = getIntent().getStringExtra("apellido2medico");
+        fecha = getIntent().getStringExtra("fecha");
+        hora = getIntent().getStringExtra("hora");
+        medico = getIntent().getStringExtra("medico");
+        paciente = getIntent().getStringExtra("paciente");
+        apellido1paciente = getIntent().getStringExtra("apellido1paciente");
+        apellido2paciente = getIntent().getStringExtra("apellido2paciente");
+        apellido1medico = getIntent().getStringExtra("apellido1medico");
+        apellido2medico = getIntent().getStringExtra("apellido2medico");
 
 
 
-        int id = getIntent().getIntExtra("id",0);
+         id = getIntent().getIntExtra("id",0);
 
         int activo = getIntent().getIntExtra("activo",0);
 
@@ -43,6 +49,9 @@ public class ActivityCitasVista extends CommonCode {
         TextView txtMedico = (TextView) findViewById(R.id.text_data_RegistrarMedico_name);
         TextView txtFecha = (TextView) findViewById(R.id.text_data_RegistrarCita_date);
         TextView txtHora = (TextView) findViewById(R.id.text_data_RegistrarCita_hour);
+
+        correo = (Button) findViewById(R.id.button_RecordatorioCita);
+        correo.setOnClickListener(this);
 
 
         txtPaciente.setText(paciente_nombre);
@@ -55,5 +64,18 @@ public class ActivityCitasVista extends CommonCode {
     @Override
     public void onClick(View v) {
         super.onClick(v);
+        switch (v.getId()){
+            case R.id.button_RecordatorioCita:
+                Intent intent= new Intent(getApplicationContext(),ActivityCitasRecordatorio.class);
+                intent.putExtra("id",id);
+                intent.putExtra("fecha", fecha);
+                intent.putExtra("hora", hora);
+                intent.putExtra("paciente",paciente_nombre);
+                intent.putExtra("medico",medico_nombre);
+                startActivity(intent);
+
+                break;
+        }
     }
+
 }

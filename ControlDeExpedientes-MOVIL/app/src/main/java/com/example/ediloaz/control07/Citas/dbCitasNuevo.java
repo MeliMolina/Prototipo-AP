@@ -73,15 +73,19 @@ public class dbCitasNuevo extends AsyncTask<String, Integer, String> {
             Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Conexión a la BD exitosa");
 
             PreparedStatement stmt;
-            int id_medico = Integer.parseInt(medico.get(SessionManager.KEY_ID));
-            stmt = conn.prepareStatement("INSERT INTO cita (medico_id, created_at, updated_at, " + "paciente_id, fecha," + " hora) VALUES ('" + id_medico + "',NOW(), NOW(), '" + id + "', '" + fecha+ "','" + hora + "');");
+            stmt = conn.prepareStatement("select id from pacientes order by id desc limit 1;");
+            ResultSet rs = stmt.executeQuery();
+            rs = stmt.executeQuery();
 
-            Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Consulta creada");
-            stmt.executeUpdate();
+            if(rs.next()) {
+                int id_paciente = Integer.parseInt(rs.getString("id"));
+                int id_medico = Integer.parseInt(medico.get(SessionManager.KEY_ID));
+                stmt = conn.prepareStatement("INSERT INTO cita (medico_id, created_at, updated_at, " + "paciente_id, fecha," + " hora) VALUES ('" + id_medico + "',NOW(), NOW(), '" + id_paciente + "', '" + fecha+ "','" + hora + "');");
+                Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Consulta creada");
+                stmt.executeUpdate();
+            }
             Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Consulta realizada");
-
             correctFinished = true;
-
             conn.close();
 
         }catch (Exception e){
