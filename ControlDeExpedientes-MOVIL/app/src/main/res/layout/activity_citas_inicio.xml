@@ -59,15 +59,26 @@
                     <!--Buscar-->
                     <!--android:layout_width="120dp"-->
                     <Button
+                        android:id="@+id/button_Citas_Visualizar"
+                        android:background="@drawable/button_blue"
+                        android:textColor="#FFFFFF"
+                        android:text="Buscar citas"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:padding="0dp"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        android:layout_marginRight="20dp"/>
+
+                    <Button
                         android:id="@+id/button_Citas_Nuevo"
                         android:background="@drawable/button_blue"
                         android:textColor="#FFFFFF"
                         android:text="@string/button_nuevo"
-                        android:layout_width="100dp"
+                        android:layout_width="97dp"
                         android:layout_height="wrap_content"
                         android:padding="0dp"
                         android:textAllCaps="false"
-                        android:fontFamily="sans-serif"
                         android:textSize="18sp" />
                 </LinearLayout>
 

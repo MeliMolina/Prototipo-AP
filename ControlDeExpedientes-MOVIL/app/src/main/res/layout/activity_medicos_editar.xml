@@ -274,8 +274,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAllCaps="false"
-                        android:fontFamily="sans-serif"
-                        android:textSize="18sp" />
+                        android:background="@drawable/button_blue"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"/>
 
                     <ProgressBar
                         style="?android:attr/progressBarStyleLarge"

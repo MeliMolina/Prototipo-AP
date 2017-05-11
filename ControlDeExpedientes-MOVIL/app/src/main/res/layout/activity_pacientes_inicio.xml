@@ -63,20 +63,18 @@
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:textAllCaps="false"
-                        android:fontFamily="sans-serif"
                         android:textSize="18sp"
                         android:layout_marginRight="20dp"/>
 
                     <!--Buscar-->
                     <Button
                         android:id="@+id/button_Pacientes_Buscar"
-                        android:background="@drawable/button_blue"
-                        android:textColor="#FFFFFF"
-                        android:text="@string/button_buscar"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/button_blue"
+                        android:text="@string/button_buscar"
                         android:textAllCaps="false"
-                        android:fontFamily="sans-serif"
+                        android:textColor="#FFFFFF"
                         android:textSize="18sp" />
                 </LinearLayout>
 

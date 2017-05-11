@@ -96,6 +96,7 @@ public class ActivityCitasNuevo extends CommonCode {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(ActivityCitasNuevo.this, ActivityCitasNuevo2.class);
+                    intent.putExtra("id", paciente.getId());
                     startActivity(intent);
                 }
             });

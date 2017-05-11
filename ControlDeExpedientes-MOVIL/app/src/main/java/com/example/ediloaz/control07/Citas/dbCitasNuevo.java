@@ -21,7 +21,7 @@ import java.util.HashMap;
 
 public class dbCitasNuevo extends AsyncTask<String, Integer, String> {
     private String fecha, hora,messageFinished;
-    private int id;
+    private int id_medico, id;
     public boolean correctFinished;
     private ActivityCitasNuevo2 activity;
     private ProgressBar progressBar;
@@ -78,12 +78,14 @@ public class dbCitasNuevo extends AsyncTask<String, Integer, String> {
             rs = stmt.executeQuery();
 
             if(rs.next()) {
-                int id_paciente = Integer.parseInt(rs.getString("id"));
-                int id_medico = Integer.parseInt(medico.get(SessionManager.KEY_ID));
-                stmt = conn.prepareStatement("INSERT INTO cita (medico_id, created_at, updated_at, " + "paciente_id, fecha," + " hora) VALUES ('" + id_medico + "',NOW(), NOW(), '" + id_paciente + "', '" + fecha+ "','" + hora + "');");
+
+                id_medico = Integer.parseInt(medico.get(SessionManager.KEY_ID));
+                stmt = conn.prepareStatement("INSERT INTO cita (medico_id, created_at, updated_at, " + "paciente_id, fecha," + " hora) VALUES ('" + id_medico + "',NOW(), NOW(), '" + id + "', '" + fecha+ "','" + hora + "');");
                 Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Consulta creada");
                 stmt.executeUpdate();
+
             }
+
             Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Consulta realizada");
             correctFinished = true;
             conn.close();
@@ -93,6 +95,7 @@ public class dbCitasNuevo extends AsyncTask<String, Integer, String> {
         }
         return "";
     }
+
 
     public SessionManager getSession() {
         return session;

@@ -62,4 +62,11 @@ public class Cita {
         this.medico = medico;
         this.paciente = paciente;
     }
+
+    public Cita(int id, String fecha, String hora,Paciente paciente) {
+        this.id = id;
+        this.fecha = fecha;
+        this.hora = hora;
+        this.paciente = paciente;
+    }
 }

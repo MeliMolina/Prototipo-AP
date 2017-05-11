@@ -18,7 +18,7 @@ import com.example.ediloaz.control07.R;
 import java.util.ArrayList;
 
 public class ActivityCitasInicio extends CommonCode {
-    Button button_search,button_new;
+    Button button_search,button_new, button_visualizar;
     TableLayout tablapos;
 
     private ProgressBar progressBar;
@@ -31,6 +31,9 @@ public class ActivityCitasInicio extends CommonCode {
         super.Listener();
         button_new = (Button) findViewById(R.id.button_Citas_Nuevo);
         button_new.setOnClickListener(this);
+
+        button_visualizar= (Button) findViewById(R.id.button_Citas_Visualizar);
+        button_visualizar.setOnClickListener(this);
         tablapos = (TableLayout) findViewById(R.id.table_Citas_list);
 
 
@@ -55,6 +58,11 @@ public class ActivityCitasInicio extends CommonCode {
             case R.id.button_Citas_Nuevo:
                 Intent intent_CitasNuevo = new Intent(getApplicationContext(), ActivityCitasNuevo.class);
                 startActivity(intent_CitasNuevo);
+                break;
+
+            case R.id.button_Citas_Visualizar:
+                Intent intent_CitasVisualizar = new Intent(getApplicationContext(), ActivityCitasVisualizarBuscar.class);
+                startActivity(intent_CitasVisualizar);
                 break;
         }
     }

@@ -11,137 +11,208 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingTop="@dimen/activity_vertical_margin">
 
-            <!--Espacio en el top-->
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="50dp" />
-            <TextView
-                android:id="@+id/text_CitasNuevo2_title"
-                android:text="@string/text_CitasNuevo2_title"
-                android:layout_width="wrap_content"
+            <!--Título-->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="24sp" />
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/text_EditarCita_title"
+                    android:text="Agregar Cita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:layout_marginBottom="10dp"/>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#737373" />
 
-            <!--Paciente y médico-->
+            </LinearLayout>
+
+            <!--Formulario-->
+            <!--Imagen, fila #1 y fila #2-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                >
+                android:layout_marginTop="20dp">
+                <!--Imagen del médico-->
+                <!--<ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/contact_image_doctor"/>-->
+                <!--Fila #1 y fila #2-->
                 <LinearLayout
-                    android:layout_width="300dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    >
+                    android:gravity="left">
 
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="left"
-                    android:layout_marginRight="150dp"
-                    >
-
-                    <TextView
-                        android:id="@+id/edit_RegistrarPaciente_name"
-                        android:layout_width="200dp"
+                    <LinearLayout
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:hint="Fecha de la cita" />
-
-                    <EditText
-                        android:id="@+id/edit_CitasNuevo2_fecha_answer"
-                        android:layout_width="200dp"
+                        android:orientation="vertical"
+                        android:gravity="left">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:hint="0-0000-0000"/>
+                        android:orientation="vertical"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp">
+
+                        <LinearLayout
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="left">
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:id="@+id/text_RegistrarCita_fecha"
+                            android:text="Fecha de la cita"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp" />
+                        <LinearLayout
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                            <TextView
+                                android:id="@+id/text_AgregarFecha"
+                                android:text="Fecha: "
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:textSize="18sp" />
+                            <Button
+                                android:id="@+id/button_Agregar_Fecha"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Seleccionar fecha"
+                                android:onClick="onClick"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:textAllCaps="false"
+                                android:background="@drawable/button_blue"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:id="@+id/text_AgregarHora"
+                            android:text="Hora de la cita"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp" />
+                        <LinearLayout
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/activity_vertical_margin">
+                            <TextView
+                                android:id="@+id/text_CitaHora"
+                                android:text="Hora: "
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                android:textSize="18sp" />
+                            <Button
+                                android:id="@+id/button_Agregar_Hora"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Seleccionar hora"
+                                android:onClick="onClick"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:textAllCaps="false"
+                                android:background="@drawable/button_blue"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"/>
+
+
+
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
-            <!--Fecha y hora-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                >
-                <LinearLayout
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
-                    <TextView
-                        android:id="@+id/text_CitasNuevo2_Paciente"
-                        android:text="@string/text_CitasNuevo2_Paciente"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp" />
-                    <TextView
-                        android:id="@+id/text_CitasNuevo2_Paciente_answer"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:hint="ejemplo"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="left"
-                    android:layout_marginRight="150dp"
-                    >
-                    <TextView
-                        android:id="@+id/text_CitasNuevo2_hora"
-                        android:text="Hora de la cita"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp" />
-                    <EditText
-                        android:id="@+id/edit_CitasNuevo2_hora_answer"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:hint="Hora"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <!--Botón de registrar-->
+            <!--Fila #4, fila #5, fila #6 y botón de Registrar-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:orientation="horizontal"
-                android:gravity="center">
-                <Button
-                    android:id="@+id/button_CitasNuevo2_Agregar"
-                    android:text="Agregar cita"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                >
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="20dp">
+
+                <!--Botón de registrar-->
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAllCaps="false"
-                    android:fontFamily="sans-serif"
-                    android:textSize="18sp" />
-                <ProgressBar
-                    style="?android:attr/progressBarStyleLarge"
-                    android:progressDrawable="@drawable/circular_progress_bar"
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_gravity="center"
-                    android:id="@+id/progressBar"/>
+                    android:orientation="vertical"
+                    android:gravity="left"
+                    android:layout_marginTop="10dp">
+
+                    <Button
+                        android:id="@+id/button_CitasNuevo2_Agregar"
+                        android:text="Agregar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAllCaps="false"
+                        android:textSize="18sp" />
+
+                    <ProgressBar
+                        style="?android:attr/progressBarStyleLarge"
+                        android:progressDrawable="@drawable/circular_progress_bar"
+                        android:layout_width="60dp"
+                        android:layout_height="49dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/progressBar"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>
+

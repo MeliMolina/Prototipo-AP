@@ -79,7 +79,6 @@
                         android:layout_height="wrap_content"
                         android:padding="0dp"
                         android:textAllCaps="false"
-                        android:fontFamily="sans-serif"
                         android:textSize="18sp" />
                 </LinearLayout>
 

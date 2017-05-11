@@ -12,11 +12,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:gravity="center_horizontal"
+            android:orientation="vertical"
             android:paddingTop="@dimen/activity_vertical_margin"
             android:weightSum="1">
 
@@ -24,16 +25,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/text_RegistrarPaciente_title"
-                    android:text="@string/text_RegistrarPaciente_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="30sp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/text_RegistrarPaciente_title"
                     android:textAlignment="center"
-                    android:layout_marginBottom="10dp"/>
+                    android:textSize="30sp" />
+
                 <View
                     android:layout_width="fill_parent"
                     android:layout_height="1dp"
@@ -45,58 +48,57 @@
             <LinearLayout
                 android:layout_width="344dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="20dp"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:layout_weight="0.27">
+                android:layout_marginTop="20dp"
+                android:layout_weight="0.27"
+                android:gravity="center"
+                android:orientation="horizontal">
                 <!--Imagen del paciente-->
                 <ImageView
                     android:layout_width="130dp"
                     android:layout_height="130dp"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/login_user"/>
+                    android:src="@drawable/login_user" />
                 <!--Fila #1 y fila #2-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/text_RegistrarPaciente_nombre"
-                        android:text="@string/text_form_complete_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/text_form_complete_name"
                         android:textSize="18sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <EditText
                             android:id="@+id/edit_RegistrarPaciente_name"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:hint="Nombre"/>
+                            android:hint="Nombre"
+                            android:textSize="18sp" />
 
                         <EditText
                             android:id="@+id/edit_RegistrarPaciente_lastname1"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:hint="Primer apellido"/>
+                            android:hint="Primer apellido"
+                            android:textSize="18sp" />
 
                         <EditText
                             android:id="@+id/edit_RegistrarPaciente_lastname2"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:hint="Segundo apellido"/>
+                            android:hint="Segundo apellido"
+                            android:textSize="18sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -106,72 +108,75 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:layout_marginTop="10dp">
+                android:orientation="vertical">
 
                 <!--Número de cedula-->
                 <LinearLayout
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin">
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/text_RegistrarPaciente_ced_number"
-                        android:text="@string/text_form_ced_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/text_form_ced_number"
                         android:textSize="18sp" />
+
                     <EditText
                         android:id="@+id/edit_RegistrarPaciente_ced_number"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:hint="0-0000-0000"/>
+                        android:hint="0-0000-0000"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <!--Nacionalidad-->
                 <LinearLayout
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="@dimen/activity_vertical_margin">
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/text_RegistrarPaciente_nacionality"
-                        android:text="@string/text_form_nacionality"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/text_form_nacionality"
                         android:textSize="18sp" />
+
                     <Spinner
+                        android:id="@+id/spinner_RegistrarPaciente_nacionality"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/spinner_RegistrarPaciente_nacionality"
                         android:drawSelectorOnTop="true"
                         android:entries="@array/nacionalidad"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <!--Género-->
                 <LinearLayout
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
+                    android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/text_RegistrarPaciente_gender"
-                        android:text="@string/text_form_gender"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/text_form_gender"
                         android:textSize="18sp" />
 
                     <Spinner
+                        android:id="@+id/spinner_RegistrarPaciente_gender"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/spinner_RegistrarPaciente_gender"
                         android:drawSelectorOnTop="true"
                         android:entries="@array/sex"
-                        android:textSize="18sp"
-                        />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -179,75 +184,84 @@
                 <LinearLayout
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
                     android:gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/activity_vertical_margin">
+                    android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/text_RegistrarPaciente_birthday_date"
-                        android:text="@string/text_form_birthday_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/text_form_birthday_date"
                         android:textSize="18sp" />
+
                     <TextView
                         android:id="@+id/text_RegistrarPaciente_birthday_date_answer"
-                        android:text="Fecha: "
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="Fecha: "
                         android:textAlignment="center"
                         android:textSize="18sp" />
+
                     <Button
                         android:id="@+id/button_RegistrarPaciente_birth"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Seleccionar fecha"
-                        android:onClick="datePicker"
-                        android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:textAllCaps="false"/>
+                        android:layout_centerVertical="true"
+                        android:onClick="datePicker"
+                        android:text="Seleccionar fecha"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_blue"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"/>
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:layout_marginTop="20dp">
-
+                android:orientation="vertical">
 
 
                 <!--Fecha fallecimiento-->
                 <LinearLayout
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:gravity="center_horizontal"
-                    >
+                    android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/text_RegistrarPaciente_death"
-                        android:text="@string/text_form_death"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/text_form_death"
                         android:textSize="18sp" />
+
                     <TextView
-                        android:text="Fecha: "
+                        android:id="@+id/text_RegistrarPaciente_death_answer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
+                        android:text="Fecha: "
                         android:textAlignment="center"
-                        android:id="@+id/text_RegistrarPaciente_death_answer" />
+                        android:textSize="18sp" />
 
                     <Button
                         android:id="@+id/button_RegistrarPaciente_death"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Seleccionar fecha"
-                        android:onClick="showDatePickerDialogDeath"
-                        android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:textAllCaps="false"/>
+                        android:layout_centerVertical="true"
+                        android:onClick="showDatePickerDialogDeath"
+                        android:text="Seleccionar fecha"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_blue"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -257,16 +271,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:layout_marginTop="20dp">
+                android:orientation="vertical">
 
                 <!--Columna de listas: Números, direcciones y enfermedades-->
                 <LinearLayout
                     android:layout_width="280dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:gravity="center_horizontal"
+                    android:orientation="vertical"
 
                     >
 
@@ -274,38 +288,40 @@
                     <LinearLayout
                         android:layout_width="280dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:gravity="center_horizontal"
-                        >
+                        android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/text_RegistrarPaciente_mails_list"
-                            android:text="@string/text_form_mails_list"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="@string/text_form_mails_list"
 
                             android:textSize="18sp" />
+
                         <EditText
                             android:id="@+id/edit_RegistrarPaciente_email"
                             android:layout_width="280dp"
-                            android:textAlignment="center"
                             android:layout_height="wrap_content"
-                            android:textSize="18sp"/>
+                            android:textAlignment="center"
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                     <!--Lista de números telefónicos-->
                     <LinearLayout
                         android:layout_width="280dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:gravity="center_horizontal"
-                        >
+                        android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/text_RegistrarPaciente_numbers_list"
-                            android:text="@string/text_form_numbers_list"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="@string/text_form_numbers_list"
                             android:textAlignment="center"
                             android:textSize="18sp" />
+
                         <EditText
                             android:id="@+id/edit_RegistrarPaciente_telephone"
                             android:layout_width="280dp"
@@ -318,22 +334,23 @@
                     <LinearLayout
                         android:layout_width="280dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:gravity="center_horizontal"
-                        >
+                        android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/text_RegistrarPaciente_addresses_list"
-                            android:text="@string/text_form_addresses_list"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="@string/text_form_addresses_list"
                             android:textAlignment="center"
                             android:textSize="18sp" />
+
                         <EditText
                             android:id="@+id/edit_RegistrarPaciente_address"
                             android:layout_width="280dp"
                             android:layout_height="wrap_content"
                             android:textAlignment="center"
-                            android:textSize="18sp"/>
+                            android:textSize="18sp" />
                     </LinearLayout>
 
                     <!--Lista de enfermedades-->
@@ -345,25 +362,25 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
                     <Button
                         android:id="@+id/button_RegistrarPaciente_registrar"
-                        android:text="@string/button_RegistrarPaciente_registrar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/button_RegistrarPaciente_registrar"
                         android:textAllCaps="false"
-                        android:fontFamily="sans-serif"
                         android:textSize="18sp" />
 
 
                     <ProgressBar
+                        android:id="@+id/progressBar"
                         style="?android:attr/progressBarStyleLarge"
-                        android:progressDrawable="@drawable/circular_progress_bar"
                         android:layout_width="60dp"
                         android:layout_height="49dp"
                         android:layout_gravity="center"
-                        android:id="@+id/progressBar"/>
+                        android:progressDrawable="@drawable/circular_progress_bar" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

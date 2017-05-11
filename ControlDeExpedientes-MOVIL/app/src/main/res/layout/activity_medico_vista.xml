@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     tools:context="com.example.ediloaz.control07.Medicos.ActivityMedicosVista">
-    <include layout="@layout/dashboard"
-        android:layout_width="298dp" />
+    <include layout="@layout/dashboard" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -50,8 +49,8 @@
                 android:layout_weight="1.06">
                 <!--Imagen del médico-->
                 <ImageView
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_marginRight="10dp"
                     android:src="@drawable/contact_image_doctor"/>
                 <!--Fila #1 y fila #2-->
@@ -79,18 +78,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="18sp"
                             android:hint="Nombre"/>
-                        <TextView
-                            android:id="@+id/text_RegistrarMedico_lastname1"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:hint="Primer apellido"/>
-                        <TextView
-                            android:id="@+id/text_RegistarMedico_lastname2"
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:textSize="18sp"
-                            android:hint="Segundo apellido"/>
+
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"

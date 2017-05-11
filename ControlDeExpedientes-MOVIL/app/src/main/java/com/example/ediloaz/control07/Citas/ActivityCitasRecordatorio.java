@@ -62,7 +62,7 @@ public class ActivityCitasRecordatorio extends CommonCode {
 
 
 
-        edit_mensaje_email.setText("Buenas estimado(a) "+ paciente + " " + ", el siguiente correo es para recordarle la fecha y hora de su cita:\n"+ "Fecha: " + fecha_cita + "\n" + "Hora: "+ hora_cita + "\n" + "Médico: " + medico +  "\n "+ "Saludos\n"+ "__________________________\n"+"Expediente Médico");
+        edit_mensaje_email.setText("Buenas estimado(a)" + paciente + ",el siguiente correo es para recordarle la fecha y hora de su cita:\n"+ "Fecha: " + fecha_cita + "\n" + "Hora: "+ hora_cita + "\n" + "Médico: " + medico +  "\n "+ "Saludos\n\n"+ "__________________________\n"+"Expediente Médico");
 
 
     }
