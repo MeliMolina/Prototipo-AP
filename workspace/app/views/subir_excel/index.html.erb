@@ -1,0 +1,29 @@
+<h1> Agregar Nuevos Pacientes - Subir un Archivo Excel </h1>
+
+<p> Para agregar pacientes desde un archivo excel, el formato del archivo tiene que ser el siguiente: </p>
+<ul>
+  <li>El documento no debe tener encabezados</li>
+  <li>Cada dato del paciente debe de venir en columnas separadas.</li>
+  <li>Los datos deben ser escritos en columnas, y no en filas.</li>
+  <li>Los campos requeridos son los siguientes: </li>
+  <ol>
+      <li>C&eacutedula (1-1234-5678)</li>
+      <li>Nombre</li>
+      <li>Primer Apellido</li>
+      <li>Segundo Apellido</li>
+      <li>Fecha de Nacimiento (MM/DD/AAAA)</li>
+      <li>Nacionalidad (Costarricense, Costarricense Naturalizado, Extranjero)</li>
+      <li>Sexo (Femenino, Masculino) </li>
+      <li>Fecha de Fallecimiento (MM/DD/AAAA) (Si no hay fecha de fallecimiento, se deja en blanco)</li>
+  </ol> 
+  <li>Ejemplo: 1-1234-5678 | María | Gómez | Herrera | 03/17/2015 | Costarricense | Femenino </li>
+</ul>
+
+<h1> Importar Archivo </h1>
+
+<%= form_tag import_pacientes_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Importar" %>
+<% end %>
+
+

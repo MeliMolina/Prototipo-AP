@@ -1,0 +1,7 @@
+<script src="chartkick.js"></script>
+
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+
+Chartkick.configure({language: "en"});
+
+<%= bar_chart @pacientes.group(:enfermedads).count %>
