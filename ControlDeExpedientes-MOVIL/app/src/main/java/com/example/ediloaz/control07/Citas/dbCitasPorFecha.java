@@ -22,10 +22,10 @@ import java.util.ArrayList;
  * Created by ediloaz on 13/01/2017.
  */
 
-public class dbCitasInicio extends AsyncTask<String, Integer, String> {
+public class dbCitasPorFecha extends AsyncTask<String, Integer, String> {
 
     private Connection conn;
-    private String descripcion, mensaje, nombre,apellido1, apellido2;
+    private String descripcion, mensaje, nombre,apellido1, apellido2,fecha;
     private int fila;
     public ArrayList<Cita> matriz_datos;
 
@@ -33,13 +33,13 @@ public class dbCitasInicio extends AsyncTask<String, Integer, String> {
     private final Activity activity;
 
 
-    public dbCitasInicio(Activity pActivity, ProgressBar pProgressBar,String pDescripcion){
+    public dbCitasPorFecha(Activity pActivity, ProgressBar pProgressBar,String pFecha){
         matriz_datos = new ArrayList<Cita>();
         activity = pActivity;
         progressBar = pProgressBar;
-        descripcion = pDescripcion;
+        fecha = pFecha;
     }
-    public dbCitasInicio(Activity pActivity, ProgressBar pProgressBar,String pNombre, String pApellido1, String pApellido2){
+    public dbCitasPorFecha(Activity pActivity, ProgressBar pProgressBar,String pNombre, String pApellido1, String pApellido2){
         matriz_datos = new ArrayList<Cita>();
         activity = pActivity;
         progressBar = pProgressBar;
@@ -75,7 +75,8 @@ public class dbCitasInicio extends AsyncTask<String, Integer, String> {
             Log.w("LoginActivity", "Conexión");
 
             PreparedStatement stmt;
-            stmt = conn.prepareStatement("SELECT C.fecha, C.hora, C.id, M.nombre, M.apellido1, M.apellido2, P.nombre, P.apellido1, P.apellido2 FROM cita C INNER JOIN medicos M ON C.medico_id=M.id INNER JOIN pacientes P ON C.paciente_id=P.id;");
+            stmt = conn.prepareStatement("SELECT C.fecha, C.hora, C.id, M.nombre, M.apellido1, M.apellido2, P.nombre, P.apellido1, P.apellido2 FROM cita C INNER JOIN medicos M ON C.medico_id=M.id INNER JOIN pacientes P ON C.paciente_id=P.id " +
+                            "WHERE C.fecha = '" + fecha + "';");
 
 
             ResultSet rs = stmt.executeQuery();

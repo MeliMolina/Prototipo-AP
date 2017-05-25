@@ -33,6 +33,13 @@ public class ActivityCitasEditar extends CommonCode {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_citas_editar);
+        button_fecha.setOnClickListener(this);
+        button_hora = (Button)findViewById(R.id.button_SeleccionarHora);
+        button_hora.setOnClickListener(this);
+
+        edit_fecha_cita = (TextView)findViewById(R.id.text_CitaFecha);
+        edit_hora_cita = (TextView)findViewById(R.id.text_CitaHora);
+
         super.Listener();
 
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
@@ -41,13 +48,6 @@ public class ActivityCitasEditar extends CommonCode {
         button_editar = (Button)findViewById(R.id.button_EditarCita_editar);
         button_editar.setOnClickListener(this);
         button_fecha = (Button)findViewById(R.id.button_SeleccionarFecha);
-        button_fecha.setOnClickListener(this);
-        button_hora = (Button)findViewById(R.id.button_SeleccionarHora);
-        button_hora.setOnClickListener(this);
-
-        edit_fecha_cita = (TextView)findViewById(R.id.text_CitaFecha);
-        edit_hora_cita = (TextView)findViewById(R.id.text_CitaHora);
-
 
         fecha = getIntent().getStringExtra("fecha");
         hora = getIntent().getStringExtra("hora");
@@ -75,7 +75,7 @@ public class ActivityCitasEditar extends CommonCode {
 
             case R.id.button_SeleccionarFecha:
                 new DatePickerDialog(ActivityCitasEditar.this,listener_date,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
-                break;
+            break;
             case R.id.button_SeleccionarHora:
                 hora2=calendar.get(Calendar.HOUR_OF_DAY);
                 minutos=calendar.get(Calendar.MINUTE);

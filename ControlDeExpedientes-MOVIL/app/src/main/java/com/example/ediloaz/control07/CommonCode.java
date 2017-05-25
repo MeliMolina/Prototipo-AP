@@ -10,13 +10,15 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.ediloaz.control07.Citas.ActivityCitasInicio;
+import com.example.ediloaz.control07.Citas.ActivityCitasRecordatorio;
+import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesEstadisticas;
 import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesInicio;
 import com.example.ediloaz.control07.Medicos.ActivityMedicosInicio;
 import com.example.ediloaz.control07.Pacientes.ActivityPacientesInicio;
 
 
 public class CommonCode extends AppCompatActivity implements View.OnClickListener {
-    private Button pacientes_button, medicos_button, enfermedades_button, citas_button, logout_button;
+    private Button pacientes_button, medicos_button, enfermedades_button, citas_button, graficas_button,recordatorio_button, logout_button;
 
     private SessionManager session;
 
@@ -41,6 +43,14 @@ public class CommonCode extends AppCompatActivity implements View.OnClickListene
         medicos_button.setOnClickListener(this);
         enfermedades_button = (Button) findViewById(R.id.dashboard_Enfermedades);
         enfermedades_button.setOnClickListener(this);
+
+        graficas_button = (Button) findViewById(R.id.dashboard_Gráficas);
+        graficas_button.setOnClickListener(this);
+
+        recordatorio_button = (Button) findViewById(R.id.dashboard_Recordatorio);
+        recordatorio_button.setOnClickListener(this);
+
+
         if(!admin) {
             medicos_button.setVisibility(View.GONE);
             enfermedades_button.setVisibility(View.GONE);
@@ -83,6 +93,19 @@ public class CommonCode extends AppCompatActivity implements View.OnClickListene
                 startActivity(intent_Citas);
                 finish();
                 break;
+
+            case R.id.dashboard_Gráficas:
+                Intent intent_Graficas = new Intent(getApplicationContext(),ActivityEnfermedadesEstadisticas.class);
+                startActivity(intent_Graficas);
+                finish();
+                break;
+
+            case R.id.dashboard_Recordatorio:
+                Intent intent_Recordatorio = new Intent(getApplicationContext(),ActivityCitasRecordatorio.class);
+                startActivity(intent_Recordatorio);
+                finish();
+                break;
+
             case R.id.dashboard_LogOut:
                 if(getSession().isLoggedIn()){
                     getSession().logoutUser();

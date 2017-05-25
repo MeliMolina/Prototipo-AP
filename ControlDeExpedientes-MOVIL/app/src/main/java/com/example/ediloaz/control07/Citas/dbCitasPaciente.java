@@ -11,42 +11,46 @@ import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesBuscar;
 import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesInicio;
 import com.example.ediloaz.control07.Medicos.Medico;
 import com.example.ediloaz.control07.Pacientes.Paciente;
+import com.example.ediloaz.control07.SessionManager;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by ediloaz on 13/01/2017.
  */
 
-public class dbCitasInicio extends AsyncTask<String, Integer, String> {
+public class dbCitasPaciente extends AsyncTask<String, Integer, String> {
 
     private Connection conn;
-    private String descripcion, mensaje, nombre,apellido1, apellido2;
+    private String descripcion, mensaje, nombre,apellido1,apellido2;
     private int fila;
     public ArrayList<Cita> matriz_datos;
+    private int id_medico;
 
     private ProgressBar progressBar;
     private final Activity activity;
+    private SessionManager session;
+    HashMap<String, String> medico;
 
 
-    public dbCitasInicio(Activity pActivity, ProgressBar pProgressBar,String pDescripcion){
+    public dbCitasPaciente(Activity pActivity, ProgressBar pProgressBar, String pnombre, String papellido1, String papellido2){
         matriz_datos = new ArrayList<Cita>();
         activity = pActivity;
         progressBar = pProgressBar;
-        descripcion = pDescripcion;
+        nombre = pnombre;
+        apellido1 = papellido1;
+        apellido2 = papellido2;
+
+
+        session = new SessionManager(activity);
+        medico = getSession().getUserDetails();
     }
-    public dbCitasInicio(Activity pActivity, ProgressBar pProgressBar,String pNombre, String pApellido1, String pApellido2){
-        matriz_datos = new ArrayList<Cita>();
-        activity = pActivity;
-        progressBar = pProgressBar;
-        nombre = pNombre;
-        apellido1 = pApellido1;
-        apellido2 = pApellido2;
-    }
+
 
     @Override
     protected void onPostExecute(String result) {
@@ -54,7 +58,7 @@ public class dbCitasInicio extends AsyncTask<String, Integer, String> {
 
         progressBar.setVisibility(View.GONE);
 
-        ((ActivityCitasInicio) activity).llenarTabla(matriz_datos);
+        ((ActivityBuscarCitasVista) activity).llenarTabla(matriz_datos);
 
     }
 
@@ -74,37 +78,26 @@ public class dbCitasInicio extends AsyncTask<String, Integer, String> {
                     "jdbc:mysql://mysql.freehostia.com:3306/kenqui_expctlr", "kenqui_expctlr", "adminexpctlr");
             Log.w("LoginActivity", "Conexión");
 
+            id_medico = Integer.parseInt(medico.get(SessionManager.KEY_ID));
+            Log.i("Medico actual ","abcd"+id_medico);
+
             PreparedStatement stmt;
-            stmt = conn.prepareStatement("SELECT C.fecha, C.hora, C.id, M.nombre, M.apellido1, M.apellido2, P.nombre, P.apellido1, P.apellido2 FROM cita C INNER JOIN medicos M ON C.medico_id=M.id INNER JOIN pacientes P ON C.paciente_id=P.id;");
 
-
+            stmt = conn.prepareStatement("SELECT C.id, C.fecha, C.hora FROM cita C INNER JOIN pacientes P ON C.paciente_id = P.id " +
+            "WHERE P.nombre = '" + nombre + "' AND P.apellido1 = '" + apellido1 + "' AND P.apellido2 = '" + apellido2 +  "';");
             ResultSet rs = stmt.executeQuery();
 
+
             String fecha, hora;
-            String medicoNombre, medicoApellido1, medicoApellido2;
-            String pacienteNombre, pacienteApellido1, pacienteApellido2;
 
             int idCita;
 
             while(rs.next()) {
-                fecha = rs.getString(1);
-                hora = rs.getString(2);
-                idCita = rs.getInt(3);
-
-                medicoNombre = rs.getString(4);
-                medicoApellido1 = rs.getString(5);
-                medicoApellido2 = rs.getString(6);
-
-                pacienteNombre = rs.getString(7);
-                pacienteApellido1 = rs.getString(8);
-                pacienteApellido2 = rs.getString(9);
-
-                mensaje = "La cita con " + medicoNombre + " con paciente" + pacienteNombre;
-
-                Medico medico = new Medico(medicoNombre,medicoApellido1,medicoApellido2);
-                Paciente paciente = new Paciente(pacienteNombre,pacienteApellido1,pacienteApellido2);
-
-                Cita cita = new Cita(idCita,fecha,hora,medico,paciente);
+                idCita = rs.getInt(1);
+                fecha = rs.getString(2);
+                hora = rs.getString(3);
+                mensaje = "Fecha de la cita: " + fecha + "Hora de la cita: " + hora;
+                Cita cita = new Cita(idCita,fecha,hora);
 
                 matriz_datos.add(cita);
                 Log.v("Aviso: ",mensaje);
@@ -115,6 +108,10 @@ public class dbCitasInicio extends AsyncTask<String, Integer, String> {
             Log.w("LoginActivity","ERROR: Conexión---" +e.getMessage());
         }
         return "";
+    }
+
+    public SessionManager getSession() {
+        return session;
     }
 
 

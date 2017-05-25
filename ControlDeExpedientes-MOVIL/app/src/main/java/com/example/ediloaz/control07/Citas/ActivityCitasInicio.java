@@ -1,5 +1,6 @@
 package com.example.ediloaz.control07.Citas;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -7,21 +8,33 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ProgressBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import java.util.GregorianCalendar;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 import com.example.ediloaz.control07.CommonCode;
 import com.example.ediloaz.control07.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class ActivityCitasInicio extends CommonCode {
-    Button button_search,button_new, button_visualizar;
+    Button button_new, button_citas_fecha, button_buscarcitas;
+    private String fecha;
     TableLayout tablapos;
+    TextView fecha_cita;
+    private String fecha_sistema;
 
     private ProgressBar progressBar;
+    private Calendar calendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,22 +45,46 @@ public class ActivityCitasInicio extends CommonCode {
         button_new = (Button) findViewById(R.id.button_Citas_Nuevo);
         button_new.setOnClickListener(this);
 
-        button_visualizar= (Button) findViewById(R.id.button_Citas_Visualizar);
-        button_visualizar.setOnClickListener(this);
+        button_citas_fecha= (Button) findViewById(R.id.button_Citas_Por_Fecha);
+        button_citas_fecha.setOnClickListener(this);
+
+        button_buscarcitas= (Button) findViewById(R.id.button_buscar_citas);
+        button_buscarcitas.setOnClickListener(this);
+
+
         tablapos = (TableLayout) findViewById(R.id.table_Citas_list);
 
 
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
 
+        fecha_cita = (TextView)findViewById(R.id.text_Fecha_Cita);
+
     }
+
+    DatePickerDialog.OnDateSetListener listener_date = new DatePickerDialog.OnDateSetListener(){
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth){
+
+            if(monthOfYear < 10) {
+                fecha_cita.setText(year + "-" + "0"+(monthOfYear + 1) + "-" + dayOfMonth);
+            }
+            else{
+                fecha_cita.setText(year + "-" +(monthOfYear + 1) + "-" + dayOfMonth);
+
+            }
+
+        }
+    };
 
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-        dbCitasInicio db = new dbCitasInicio(this, progressBar,"");
+        //String date = getFechaActual();
+
+        dbCitasPorFechaActual db = new dbCitasPorFechaActual(this, progressBar,"");
         db.execute("");
     }
 
@@ -60,9 +97,17 @@ public class ActivityCitasInicio extends CommonCode {
                 startActivity(intent_CitasNuevo);
                 break;
 
-            case R.id.button_Citas_Visualizar:
-                Intent intent_CitasVisualizar = new Intent(getApplicationContext(), ActivityCitasVisualizarBuscar.class);
-                startActivity(intent_CitasVisualizar);
+            case R.id.button_Citas_Por_Fecha:
+                new DatePickerDialog(ActivityCitasInicio.this,listener_date,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
+                fecha = fecha_cita.getText().toString();
+                dbCitasPorFecha db = new dbCitasPorFecha(this,progressBar,fecha);
+                db.execute();
+                break;
+
+            case R.id.button_buscar_citas:
+                Intent intent_BuscarCitas = new Intent(getApplicationContext(), ActivityBuscarCitasVista.class);
+                startActivity(intent_BuscarCitas);
+
                 break;
         }
     }

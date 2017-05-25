@@ -32,24 +32,36 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingLeft="0dp"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 >
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:gravity="left|center_vertical"
-                    >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/text_Enfermedades_list"
-                        android:text="@string/text_Citas_list"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp" />
+                        android:text="@string/text_Citas_list"
+                        android:textSize="24sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/text_Fecha_Cita"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="16dp"
+                        android:text="Fecha: "
+                        android:textSize="20sp" />
+
+
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -58,11 +70,26 @@
 
                     <!--Buscar-->
                     <!--android:layout_width="120dp"-->
+
                     <Button
-                        android:id="@+id/button_Citas_Visualizar"
+                        android:id="@+id/button_Citas_Por_Fecha"
                         android:background="@drawable/button_blue"
                         android:textColor="#FFFFFF"
-                        android:text="Buscar citas"
+                        android:text="Ver citas por fecha"
+                        android:layout_width="97dp"
+                        android:layout_height="wrap_content"
+                        android:padding="0dp"
+                        android:textAllCaps="false"
+                        android:onClick="onClick"
+                        android:textSize="18sp"
+                        android:layout_marginRight="20dp"/>
+
+
+                    <Button
+                        android:id="@+id/button_buscar_citas"
+                        android:background="@drawable/button_blue"
+                        android:textColor="#FFFFFF"
+                        android:text="Buscar citas de un paciente"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:padding="0dp"

@@ -84,6 +84,10 @@
         <activity
             android:name=".Enfermedades.ActivityEnfermedadesVista"
             android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".Enfermedades.ActivityEnfermedadesEstadisticas"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".ActivityIngresar"
             android:label="@string/title_activity_ingresar"
@@ -128,8 +132,9 @@
             android:screenOrientation="landscape" />
 
         <activity
-            android:name=".Citas.ActivityCitasVisualizarBuscar"
+            android:name=".Citas.ActivityBuscarCitasVista"
             android:screenOrientation="landscape" />
+
         <activity android:name=".Pacientes.ActivityPacientesEditar"
             android:screenOrientation="landscape" />
         <activity android:name=".Observaciones.Pacientes.ActivityPacienteObservacionesInicio"

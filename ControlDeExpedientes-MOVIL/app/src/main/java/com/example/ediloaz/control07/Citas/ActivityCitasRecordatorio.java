@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.content.Intent;
+import android.app.AlarmManager;
 
 import com.example.ediloaz.control07.CommonCode;
 import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesInicio;
@@ -77,6 +78,7 @@ public class ActivityCitasRecordatorio extends CommonCode {
                 break;
         }
     }
+
 
     public void llenarCorreoPaciente(int pId){
         try {

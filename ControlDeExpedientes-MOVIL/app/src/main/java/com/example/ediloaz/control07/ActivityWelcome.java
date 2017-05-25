@@ -30,8 +30,10 @@ public class ActivityWelcome extends CommonCode {
         TextView welcome = (TextView) findViewById(R.id.dashboard_welcome);
 
         if(admin){
+            welcome.setText("Expediente Médico Virtual\n");
             welcome.setText("Bienvenido " + name);
         }else{
+            welcome.setText("Expediente Médico Virtual\n");
             welcome.setText("Bienvenido Dr. " + name);
         }
     }

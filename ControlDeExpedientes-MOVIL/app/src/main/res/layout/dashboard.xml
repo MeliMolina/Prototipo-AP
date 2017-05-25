@@ -112,6 +112,32 @@
                 android:textColor="#FFFFFF"
                 android:textStyle= "bold"/>
 
+            <Button
+                android:id="@+id/dashboard_Gráficas"
+                android:text="Gráficas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:fontFamily="sans-serif"
+                android:textSize="18sp"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@drawable/button_blue"
+                android:textColor="#FFFFFF"
+                android:textStyle= "bold"/>
+
+            <Button
+                android:id="@+id/dashboard_Recordatorio"
+                android:text="Recordatorio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:fontFamily="sans-serif"
+                android:textSize="18sp"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:background="@drawable/button_blue"
+                android:textColor="#FFFFFF"
+                android:textStyle= "bold"/>
+
             <!--Botón de cerrar sesión-->
             <Button
                 android:id="@+id/dashboard_LogOut"

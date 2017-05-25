@@ -69,4 +69,11 @@ public class Cita {
         this.hora = hora;
         this.paciente = paciente;
     }
+
+    public Cita(int id, String fecha, String hora) {
+        this.id = id;
+        this.fecha = fecha;
+        this.hora = hora;
+
+    }
 }
