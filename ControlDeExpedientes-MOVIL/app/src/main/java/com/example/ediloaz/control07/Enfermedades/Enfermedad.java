@@ -16,6 +16,12 @@ public class Enfermedad {
         this.id = pID;
     }
 
+    public Enfermedad(String codigo, String descripcion) {
+        this.codigo = codigo;
+        this.descripcion = descripcion;
+    }
+
+
     public String getCodigo() {
         return codigo;
     }

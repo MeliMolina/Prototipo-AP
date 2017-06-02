@@ -13,6 +13,8 @@ import com.example.ediloaz.control07.Citas.ActivityCitasInicio;
 import com.example.ediloaz.control07.Citas.ActivityCitasRecordatorio;
 import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesEstadisticas;
 import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesInicio;
+import com.example.ediloaz.control07.Estadisticas.ActivityPrueba;
+import com.example.ediloaz.control07.Estadisticas.Activity_PacientesPorEnfermedad;
 import com.example.ediloaz.control07.Medicos.ActivityMedicosInicio;
 import com.example.ediloaz.control07.Pacientes.ActivityPacientesInicio;
 
@@ -95,7 +97,7 @@ public class CommonCode extends AppCompatActivity implements View.OnClickListene
                 break;
 
             case R.id.dashboard_Gráficas:
-                Intent intent_Graficas = new Intent(getApplicationContext(),ActivityEnfermedadesEstadisticas.class);
+                Intent intent_Graficas = new Intent(getApplicationContext(), Activity_PacientesPorEnfermedad.class);
                 startActivity(intent_Graficas);
                 finish();
                 break;

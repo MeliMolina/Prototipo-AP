@@ -307,6 +307,7 @@
                             android:textSize="18sp" />
                     </LinearLayout>
 
+
                     <!--Lista de números telefónicos-->
                     <LinearLayout
                         android:layout_width="280dp"
@@ -330,40 +331,114 @@
                             android:textSize="18sp" />
                     </LinearLayout>
 
-                    <!--Lista de direcciones-->
-                    <LinearLayout
-                        android:layout_width="280dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/text_RegistrarPaciente_addresses_list"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/text_form_addresses_list"
-                            android:textAlignment="center"
-                            android:textSize="18sp" />
-
-                        <EditText
-                            android:id="@+id/edit_RegistrarPaciente_address"
-                            android:layout_width="280dp"
-                            android:layout_height="wrap_content"
-                            android:textAlignment="center"
-                            android:textSize="18sp" />
-                    </LinearLayout>
 
                     <!--Lista de enfermedades-->
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="40dp"
+                    android:layout_marginTop="19dp"
+                    >
+
+                    <TextView
+                        android:text="Provincia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/text_Nombre"
+                        android:paddingLeft="120dp"
+                        android:layout_marginTop="0dp"/>
+                    />
+
+
+                    <TextView
+                        android:text="Cantón"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/text_PrimerApellido"
+                        android:paddingLeft="177dp"
+                        android:layout_marginTop="0dp"/>
+                    />
+                    <TextView
+                        android:text="Distrito"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/text_SegundoApellido"
+                        android:paddingLeft="160dp"
+                        android:layout_marginTop="0dp"/>
+                    />
+
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="16dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="100dp"
+                        >
+
+                        <Spinner
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/spinner_provincia_list"
+                            android:layout_weight="1"
+                            android:entries="@array/country_arrays"
+                            android:prompt="@string/country_prompt"
+                            android:layout_marginLeft="20dp"
+
+
+                            />
+
+                        <Spinner
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/spinner_canton_list"
+                            android:layout_weight="1"
+                            android:entries="@array/country_arrays"
+                            android:prompt="@string/country_prompt"
+                            android:layout_marginLeft="20dp"
+
+                            />
+
+                        <Spinner
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/spinner_distrito_list"
+                            android:layout_weight="1"
+                            android:entries="@array/country_arrays"
+                            android:prompt="@string/country_prompt"
+                            android:layout_marginLeft="20dp"
+
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
 
                 <!--Botón de registrar-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="23dp">
 
                     <Button
                         android:id="@+id/button_RegistrarPaciente_registrar"

@@ -117,7 +117,7 @@ public class dbPacientesListado extends AsyncTask<String, Integer, String> {
                 fechaFallecimiento = rs.getString("fechaFallecimiento");
                 sexo = rs.getString("sexo");
 
-                Paciente paciente = new Paciente(id, nombre,apellido1,apellido2,cedula,nacionalidad, sexo, fechaNacimiento, fechaFallecimiento);
+                Paciente paciente = new Paciente(id, nombre,apellido1,apellido2,cedula,nacionalidad, sexo, fechaNacimiento, fechaFallecimiento,"","","");
                 matriz_datos.add(paciente);
             }
 

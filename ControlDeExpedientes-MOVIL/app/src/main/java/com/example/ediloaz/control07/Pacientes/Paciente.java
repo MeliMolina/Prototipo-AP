@@ -7,9 +7,9 @@ package com.example.ediloaz.control07.Pacientes;
 public class Paciente {
 
     private int id;
-    private String nombre, apellido1, apellido2, cedula, nacionalidad, sexo, nacimiento, fallecimiento;
+    private String nombre, apellido1, apellido2, cedula, nacionalidad, sexo, nacimiento, fallecimiento,provincia,canton,distrito;
 
-    public Paciente(int id, String nombre, String apellido1, String apellido2, String cedula, String nacionalidad, String sexo, String nacimiento, String fallecimiento) {
+    public Paciente(int id, String nombre, String apellido1, String apellido2, String cedula, String nacionalidad, String sexo, String nacimiento, String fallecimiento, String provincia, String canton, String distrito) {
         this.id = id;
         this.nombre = nombre;
         this.apellido1 = apellido1;
@@ -19,6 +19,9 @@ public class Paciente {
         this.sexo = sexo;
         this.nacimiento = nacimiento;
         this.fallecimiento = fallecimiento;
+        this.provincia = provincia;
+        this.canton = canton;
+        this.distrito = distrito;
     }
 
     public Paciente(String nombre, String apellido1, String apellido2) {
