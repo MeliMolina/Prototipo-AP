@@ -1,8 +1,12 @@
 package com.example.ediloaz.control07.Estadisticas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
+import com.example.ediloaz.control07.CommonCode;
 import com.example.ediloaz.control07.R;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.BarEntry;
@@ -17,27 +21,31 @@ import java.util.ArrayList;
  * Created by Administrador on 01/06/2017.
  */
 
-public class Activity_Enfermedades_SJ extends AppCompatActivity {
+public class Activity_Enfermedades_SJ extends CommonCode{
     float rainfall [] = {98.8f,123.8f,161.6f,24.2f,52f,58.2f,35.4f,13.8f,78.4f,203.4f,240.2f,159.7f};
     String monthnames [] = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
 
+    Button button_regresar;
 
     protected void onCreate(Bundle savedInstanceState) {
 
         PieChart pieChart ;
-       ArrayList<Entry> entries ;
+        ArrayList<Entry> entries ;
         ArrayList<String> PieEntryLabels ;
         PieDataSet pieDataSet ;
         PieData pieData ;
 
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_enfermedades_SJ);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_enfermedades_sanjose);
+        button_regresar = (Button)findViewById(R.id.button_Regresar);
+        button_regresar.setOnClickListener(this);
 
-            pieChart = (PieChart) findViewById(R.id.piegraph);
 
-            entries = new ArrayList<>();
+        pieChart = (PieChart) findViewById(R.id.piegraph);
 
-            PieEntryLabels = new ArrayList<String>();
+        entries = new ArrayList<>();
+
+        PieEntryLabels = new ArrayList<String>();
 
         entries.add(new BarEntry(5f, 0));
         entries.add(new BarEntry(5f, 1));
@@ -45,10 +53,11 @@ public class Activity_Enfermedades_SJ extends AppCompatActivity {
         entries.add(new BarEntry(8f, 3));
         entries.add(new BarEntry(2f, 4));
         entries.add(new BarEntry(10f, 5));
+        /*
         entries.add(new BarEntry(3f, 6));
         entries.add(new BarEntry(13f, 7));
         entries.add(new BarEntry(12f, 8));
-        entries.add(new BarEntry(15f, 9));
+        entries.add(new BarEntry(15f, 9));*/
 
 
         PieEntryLabels.add("Asma");
@@ -57,22 +66,36 @@ public class Activity_Enfermedades_SJ extends AppCompatActivity {
         PieEntryLabels.add("Agorafobia");
         PieEntryLabels.add("Hepatitis B");
         PieEntryLabels.add("Cáncer de Esófago");
+        /*
         PieEntryLabels.add("Diabetes ");
         PieEntryLabels.add("Tumor Lóbulo Frontal Izquierdo");
         PieEntryLabels.add("Alergia al Polvo");
-        PieEntryLabels.add("Gripe");
+        PieEntryLabels.add("Gripe");*/
 
         pieDataSet = new PieDataSet(entries, "Enfermedades en San José");
 
-            pieData = new PieData(PieEntryLabels, pieDataSet);
+        pieData = new PieData(PieEntryLabels, pieDataSet);
 
-            pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        pieDataSet.setColors(ColorTemplate.PASTEL_COLORS);
 
-            pieChart.setData(pieData);
+        pieChart.setData(pieData);
 
-            pieChart.animateY(3000);
+        pieChart.animateY(3000);
 
         }
+
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.button_Regresar:
+                Intent intent_regresar = new Intent(this.getApplicationContext(), Activity_Estadisticas_Por_Lugar.class);
+                startActivity(intent_regresar);
+                finish();
+
+                break;
+
+        }
+    }
 
 }
 

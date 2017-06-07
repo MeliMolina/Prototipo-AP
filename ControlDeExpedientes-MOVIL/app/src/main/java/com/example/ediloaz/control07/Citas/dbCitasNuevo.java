@@ -44,6 +44,7 @@ public class dbCitasNuevo extends AsyncTask<String, Integer, String> {
         super.onPostExecute(result);
         progressBar.setVisibility(View.GONE);
 
+
         if (correctFinished == true){
             Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "4");
             Toast.makeText(activity.getApplicationContext(),"Cita agregada exitosamente.", Toast.LENGTH_LONG).show();

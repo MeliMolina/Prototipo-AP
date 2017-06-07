@@ -79,6 +79,7 @@ public class dbEnlacesPaciente extends AsyncTask<String, Integer, String> {
                     rs = stmt.executeQuery();
                 }else if (operacion.equals("update")){
                     stmt = conn.prepareStatement("UPDATE emails SET email = '" + dato_nuevo + "' WHERE paciente_id = " + id_paciente +" AND email = '" + dato_anterior + "';");
+
                     stmt.executeUpdate();
                 }else if (operacion.equals("insert")){
                     Log.v("prooooooodCorreo",""+dato_nuevo);

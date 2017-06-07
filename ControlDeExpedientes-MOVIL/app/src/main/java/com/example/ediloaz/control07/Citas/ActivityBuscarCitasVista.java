@@ -52,13 +52,12 @@ public class ActivityBuscarCitasVista extends CommonCode {
         spinner_nombre = (Spinner)findViewById(R.id.spinner_nombre_Paciente_list);
         spinner_apellido1 = (Spinner)findViewById(R.id.spinner_apellido1_list);
         spinner_apellido2= (Spinner)findViewById(R.id.spinner_apellido2_list);
+
+
         llenarSpinnerNombre();
         llenarSpinnerApellido1();
         llenarSpinnerApellido2();
-
-
     }
-
 
     @Override
     public void onClick(View v) {
@@ -169,7 +168,7 @@ public class ActivityBuscarCitasVista extends CommonCode {
 
     public void llenarSpinnerNombre(){
         try {
-            dbNombrePacientesSpinner db = new dbNombrePacientesSpinner(-1);
+            dbNombrePacientesSpinner db = new dbNombrePacientesSpinner(this,-1);
             db.execute("").get();
 
             matriz_datos_list = db.GetMatriz();
@@ -179,6 +178,8 @@ public class ActivityBuscarCitasVista extends CommonCode {
                 string_temp = matriz_datos_list.get(i).getNombre().toString();
                 list.add(string_temp);
             }
+
+
             ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                     android.R.layout.simple_spinner_item, list);
             dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -193,7 +194,7 @@ public class ActivityBuscarCitasVista extends CommonCode {
 
     public void llenarSpinnerApellido1(){
         try {
-            dbApellido1PacientesSpinner db = new dbApellido1PacientesSpinner(-1);
+            dbApellido1PacientesSpinner db = new dbApellido1PacientesSpinner(this,-1);
             db.execute("").get();
 
             matriz_datos_list = db.GetMatriz();
@@ -216,7 +217,7 @@ public class ActivityBuscarCitasVista extends CommonCode {
 
     public void llenarSpinnerApellido2(){
         try {
-            dbApellido2PacientesSpinner db = new dbApellido2PacientesSpinner(-1);
+            dbApellido2PacientesSpinner db = new dbApellido2PacientesSpinner(this,-1);
             db.execute("").get();
 
             matriz_datos_list = db.GetMatriz();

@@ -4,9 +4,11 @@ package com.example.ediloaz.control07.Estadisticas;
  * Created by Administrador on 01/06/2017.
  */
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.ediloaz.control07.CommonCode;
 import com.example.ediloaz.control07.R;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.BarEntry;
@@ -19,6 +21,8 @@ import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.ediloaz.control07.R;
 import com.github.mikephil.charting.charts.PieChart;
@@ -34,7 +38,9 @@ import java.util.ArrayList;
  * Created by Administrador on 01/06/2017.
  */
 
-public class Activity_Enfermedades_Limon extends AppCompatActivity {
+public class Activity_Enfermedades_Limon extends CommonCode {
+
+    Button button_regresar;
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -46,6 +52,10 @@ public class Activity_Enfermedades_Limon extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enfermedades_limon);
+
+        button_regresar = (Button)findViewById(R.id.button_Regresar);
+        button_regresar.setOnClickListener(this);
+
 
         pieChart = (PieChart) findViewById(R.id.piegraph);
 
@@ -59,10 +69,11 @@ public class Activity_Enfermedades_Limon extends AppCompatActivity {
         entries.add(new BarEntry(8f, 3));
         entries.add(new BarEntry(2f, 4));
         entries.add(new BarEntry(10f, 5));
+        /*
         entries.add(new BarEntry(3f, 6));
         entries.add(new BarEntry(13f, 7));
         entries.add(new BarEntry(12f, 8));
-        entries.add(new BarEntry(15f, 9));
+        entries.add(new BarEntry(15f, 9));*/
 
 
         PieEntryLabels.add("Asma");
@@ -71,20 +82,33 @@ public class Activity_Enfermedades_Limon extends AppCompatActivity {
         PieEntryLabels.add("Agorafobia");
         PieEntryLabels.add("Hepatitis B");
         PieEntryLabels.add("Cáncer de Esófago");
+        /*
         PieEntryLabels.add("Diabetes ");
         PieEntryLabels.add("Tumor Lóbulo Frontal Izquierdo");
         PieEntryLabels.add("Alergia al Polvo");
-        PieEntryLabels.add("Gripe");
+        PieEntryLabels.add("Gripe");*/
 
-        pieDataSet = new PieDataSet(entries, "Enfermedades en San José");
+        pieDataSet = new PieDataSet(entries, "Enfermedades en Limón");
 
         pieData = new PieData(PieEntryLabels, pieDataSet);
 
-        pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        pieDataSet.setColors(ColorTemplate.PASTEL_COLORS);
 
         pieChart.setData(pieData);
 
         pieChart.animateY(3000);
 
+    }
+
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.button_Regresar:
+                Intent intent_regresar = new Intent(this.getApplicationContext(), Activity_Estadisticas_Por_Lugar.class);
+                startActivity(intent_regresar);
+                finish();
+                break;
+
+        }
     }
 }

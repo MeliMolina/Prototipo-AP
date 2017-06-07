@@ -10,10 +10,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.ediloaz.control07.Citas.ActivityCitasInicio;
-import com.example.ediloaz.control07.Citas.ActivityCitasRecordatorio;
+import com.example.ediloaz.control07.Citas.Activity_Citas_Recordatorio;
 import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesEstadisticas;
 import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesInicio;
 import com.example.ediloaz.control07.Estadisticas.ActivityPrueba;
+import com.example.ediloaz.control07.Estadisticas.Activity_Estadisticas;
 import com.example.ediloaz.control07.Estadisticas.Activity_PacientesPorEnfermedad;
 import com.example.ediloaz.control07.Medicos.ActivityMedicosInicio;
 import com.example.ediloaz.control07.Pacientes.ActivityPacientesInicio;
@@ -56,6 +57,7 @@ public class CommonCode extends AppCompatActivity implements View.OnClickListene
         if(!admin) {
             medicos_button.setVisibility(View.GONE);
             enfermedades_button.setVisibility(View.GONE);
+            recordatorio_button.setVisibility(View.GONE);
         }
         citas_button = (Button)findViewById(R.id.dashboard_Citas);
         citas_button.setOnClickListener(this);
@@ -97,15 +99,20 @@ public class CommonCode extends AppCompatActivity implements View.OnClickListene
                 break;
 
             case R.id.dashboard_Gráficas:
-                Intent intent_Graficas = new Intent(getApplicationContext(), Activity_PacientesPorEnfermedad.class);
+                Intent intent_Graficas = new Intent(getApplicationContext(), Activity_Estadisticas.class);
                 startActivity(intent_Graficas);
                 finish();
                 break;
 
             case R.id.dashboard_Recordatorio:
-                Intent intent_Recordatorio = new Intent(getApplicationContext(),ActivityCitasRecordatorio.class);
-                startActivity(intent_Recordatorio);
-                finish();
+                if(admin) {
+                    Intent intent_Recordatorio = new Intent(getApplicationContext(), Activity_Citas_Recordatorio.class);
+                    startActivity(intent_Recordatorio);
+                    finish();
+                }
+                else{
+                    Toast.makeText(this.getApplicationContext(),"Ingreso para administradores.", Toast.LENGTH_SHORT).show();
+                }
                 break;
 
             case R.id.dashboard_LogOut:

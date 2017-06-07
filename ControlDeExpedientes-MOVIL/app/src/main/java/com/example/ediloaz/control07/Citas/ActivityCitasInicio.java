@@ -60,6 +60,12 @@ public class ActivityCitasInicio extends CommonCode {
 
         fecha_cita = (TextView)findViewById(R.id.text_Fecha_Cita);
 
+        Date date = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        fecha =  dateFormat.format(date);
+        fecha_cita.setText(fecha);
+
     }
 
     DatePickerDialog.OnDateSetListener listener_date = new DatePickerDialog.OnDateSetListener(){
@@ -83,7 +89,6 @@ public class ActivityCitasInicio extends CommonCode {
         super.onPostCreate(savedInstanceState);
 
         //String date = getFechaActual();
-
         dbCitasPorFechaActual db = new dbCitasPorFechaActual(this, progressBar,"");
         db.execute("");
     }
@@ -102,6 +107,7 @@ public class ActivityCitasInicio extends CommonCode {
                 fecha = fecha_cita.getText().toString();
                 dbCitasPorFecha db = new dbCitasPorFecha(this,progressBar,fecha);
                 db.execute();
+
                 break;
 
             case R.id.button_buscar_citas:
@@ -129,6 +135,7 @@ public class ActivityCitasInicio extends CommonCode {
             TextView tv2 = new TextView(this);
             TextView tv3 = new TextView(this);
             TextView tv4 = new TextView(this);
+
             Button   button_mostrar_cita = new Button(this);
             Button   button_editar_cita = new Button(this);
 
@@ -166,7 +173,6 @@ public class ActivityCitasInicio extends CommonCode {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(ActivityCitasInicio.this, ActivityCitasEditar.class);
-
                     intent.putExtra("id", cita.getId());
                     intent.putExtra("fecha", cita.getFecha());
                     intent.putExtra("hora", cita.getHora());

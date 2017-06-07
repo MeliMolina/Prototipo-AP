@@ -80,55 +80,51 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="left|center_vertical"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
                 android:layout_marginTop="16dp"
                 >
 
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="650dp"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:gravity="left|center_vertical"
                     >
                     <!--Buscar-->
 
-
-
-
                     <Spinner
-                    android:layout_width="match_parent"
+                    android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/spinner_nombre_Paciente_list"
-                    android:layout_weight="1"
                     android:entries="@array/country_arrays"
                     android:prompt="@string/country_prompt"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="0dp"
 
                     />
 
                     <Spinner
-                        android:layout_width="match_parent"
+                        android:layout_width="170dp"
                         android:layout_height="wrap_content"
                         android:id="@+id/spinner_apellido1_list"
-                        android:layout_weight="1"
                         android:entries="@array/country_arrays"
                         android:prompt="@string/country_prompt"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="0dp"
 
                         />
 
                     <Spinner
-                        android:layout_width="match_parent"
+                        android:layout_width="170dp"
                         android:layout_height="wrap_content"
                         android:id="@+id/spinner_apellido2_list"
-                        android:layout_weight="1"
                         android:entries="@array/country_arrays"
                         android:prompt="@string/country_prompt"
-                        android:layout_marginLeft="20dp"
+
+                        android:layout_marginLeft="0dp"
 
                         />
+
                     <Button
                         android:id="@+id/button_Buscar_Citas"
                         android:background="@drawable/button_blue"
@@ -138,7 +134,7 @@
                         android:layout_height="wrap_content"
                         android:textAllCaps="false"
                         android:textSize="18sp"
-                        android:layout_marginLeft="30dp"/>
+                        android:layout_marginLeft="20dp"/>
 
 
                 </LinearLayout>

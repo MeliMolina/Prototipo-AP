@@ -2,43 +2,37 @@ package com.example.ediloaz.control07.Pacientes;
 
 import android.content.Context;
 import android.content.Intent;
-        import android.os.Bundle;
-        import android.support.v4.app.FragmentManager;
-        import android.support.v7.app.ActionBarActivity;
-        import android.util.Log;
-        import android.view.View;
-        import android.app.DatePickerDialog;
-        import android.app.Dialog;
-        import android.app.DialogFragment;
-        import android.os.Bundle;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.View;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.os.Bundle;
 import android.view.WindowManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-        import android.widget.DatePicker;
-        import android.widget.EditText;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-        import android.widget.TextView;
-        import android.widget.Toast;
-        import com.example.ediloaz.control07.ActivityIngresar;
-import com.example.ediloaz.control07.Citas.ActivityBuscarCitasVista;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.example.ediloaz.control07.ActivityIngresar;
 import com.example.ediloaz.control07.Citas.ActivityCitasInicio;
-import com.example.ediloaz.control07.Citas.dbCitasPaciente;
-import com.example.ediloaz.control07.Citas.dbNombrePacientesSpinner;
 import com.example.ediloaz.control07.CommonCode;
-        import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesInicio;
-        import com.example.ediloaz.control07.Medicos.ActivityMedicosInicio;
-        import com.example.ediloaz.control07.Medicos.dbMedicosNuevo;
-        import com.example.ediloaz.control07.R;
+import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesInicio;
+import com.example.ediloaz.control07.Medicos.ActivityMedicosInicio;
+import com.example.ediloaz.control07.Medicos.dbMedicosNuevo;
+import com.example.ediloaz.control07.R;
 import com.example.ediloaz.control07.SessionManager;
 
 import android.os.Bundle;
-        import java.text.DateFormat;
-import java.util.ArrayList;
+import java.text.DateFormat;
 import java.util.Calendar;
-        import java.util.Date;
-        import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class ActivityPacientesNuevo extends ActionBarActivity implements View.OnClickListener{
     private Calendar calendar = Calendar.getInstance();
@@ -47,12 +41,10 @@ public class ActivityPacientesNuevo extends ActionBarActivity implements View.On
     private String name, lastname1, lastname2, banknote, email, address, telephone, nationality, sex, birth, death;
     private int option;
     private ProgressBar progressBar;
-    private Spinner spinner_nationality, spinner_sex, spinner_provincia, spinner_canton, spinner_distrito;
+    private Spinner spinner_nationality, spinner_sex;
     private Button button_birthday, button_death, button_agregar;
     private Button pacientes_button, medicos_button, enfermedades_button, citas_button, logout_button;
     private SessionManager session;
-
-    private ArrayList<Countries> matriz_datos_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,17 +85,12 @@ public class ActivityPacientesNuevo extends ActionBarActivity implements View.On
         edit_lastname2 =  (EditText) findViewById(R.id.edit_RegistrarPaciente_lastname2);
         edit_banknote =  (EditText) findViewById(R.id.edit_RegistrarPaciente_ced_number);
         edit_email =  (EditText) findViewById(R.id.edit_RegistrarPaciente_email);
+        edit_address =  (EditText) findViewById(R.id.edit_RegistrarPaciente_address);
         edit_telephone =  (EditText) findViewById(R.id.edit_RegistrarPaciente_telephone);
         spinner_nationality = (Spinner)findViewById(R.id.spinner_RegistrarPaciente_nacionality);
         spinner_sex = (Spinner)findViewById(R.id.spinner_RegistrarPaciente_gender);
         text_birth = (TextView)findViewById(R.id.text_RegistrarPaciente_birthday_date_answer);
         text_death = (TextView)findViewById(R.id.text_RegistrarPaciente_death_answer);
-
-        spinner_provincia= (Spinner)findViewById(R.id.spinner_nombre_Paciente_list);
-        spinner_canton = (Spinner)findViewById(R.id.spinner_apellido1_list);
-        spinner_distrito= (Spinner)findViewById(R.id.spinner_apellido2_list);
-        llenarSpinnerProvincia();
-
     }
 
 
@@ -175,16 +162,9 @@ public class ActivityPacientesNuevo extends ActionBarActivity implements View.On
                 nationality = String.valueOf(spinner_nationality.getSelectedItem());
                 sex = String.valueOf(spinner_sex.getSelectedItem());
 
-                String provincia = String.valueOf(spinner_provincia.getSelectedItem());
-                llenarSpinnerCanton(provincia);
-                String canton = String.valueOf(spinner_canton.getSelectedItem());
-                llenarSpinnerDistrito(canton);
-                String distrito = String.valueOf(spinner_distrito.getSelectedItem());
-
-
                 Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "1");
                 try{
-                    dbPacientesNuevo db = new dbPacientesNuevo(this,progressBar,name, lastname1, lastname2, banknote, email, address, telephone, nationality, sex, birth, death,provincia,canton,distrito);
+                    dbPacientesNuevo db = new dbPacientesNuevo(this,progressBar,name, lastname1, lastname2, banknote, email, address, telephone, nationality, sex, birth, death);
                     db.execute();
                     Log.w("_A_B_C_A_A_A_A_A_A_A_A_", "2"+telephone+":"+email);
 
@@ -193,8 +173,6 @@ public class ActivityPacientesNuevo extends ActionBarActivity implements View.On
 
                     dbEnlacesPaciente db_correo = new dbEnlacesPaciente(-2,"correo","insert",email, "");
                     db_correo.execute("").get();
-
-
 
                 } catch (Exception e) {
                     Intent intent_Ingresar = new Intent(this.getApplicationContext(), ActivityEnfermedadesInicio.class);
@@ -216,77 +194,6 @@ public class ActivityPacientesNuevo extends ActionBarActivity implements View.On
     public SessionManager getSession() {
         return session;
     }
-
-    public void llenarSpinnerProvincia(){
-        try {
-            dbSpinnerProvincias db = new dbSpinnerProvincias (-1);
-            db.execute("").get();
-
-            matriz_datos_list = db.GetMatriz();
-            List<String> list = new ArrayList<String>();
-            String string_temp;
-            for(int i=0; i<matriz_datos_list.size(); i++){
-                string_temp = matriz_datos_list.get(i).getProvincia().toString();
-                list.add(string_temp);
-            }
-            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                    android.R.layout.simple_spinner_item, list);
-            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner_provincia.setAdapter(dataAdapter);
-        } catch (Exception e) {
-            Intent intent_Ingresar = new Intent(this.getApplicationContext(), ActivityPacientesNuevo.class);
-            startActivity(intent_Ingresar);
-            finish();
-        }
-    }
-
-    public void llenarSpinnerCanton(String Pprovincia){
-        try {
-            dbSpinnerCantones db = new dbSpinnerCantones (Pprovincia);
-            db.execute("").get();
-
-            matriz_datos_list = db.GetMatriz();
-            List<String> list = new ArrayList<String>();
-            String string_temp;
-            for(int i=0; i<matriz_datos_list.size(); i++){
-                string_temp = matriz_datos_list.get(i).getCanton().toString();
-                list.add(string_temp);
-            }
-            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                    android.R.layout.simple_spinner_item, list);
-            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner_canton.setAdapter(dataAdapter);
-        } catch (Exception e) {
-            Intent intent_Ingresar = new Intent(this.getApplicationContext(), ActivityPacientesNuevo.class);
-            startActivity(intent_Ingresar);
-            finish();
-        }
-    }
-
-    public void llenarSpinnerDistrito(String Pcanton){
-        try {
-            dbSpinnerDistritos db = new dbSpinnerDistritos (Pcanton);
-            db.execute("").get();
-
-            matriz_datos_list = db.GetMatriz();
-            List<String> list = new ArrayList<String>();
-            String string_temp;
-            for(int i=0; i<matriz_datos_list.size(); i++){
-                string_temp = matriz_datos_list.get(i).getDistrito().toString();
-                list.add(string_temp);
-            }
-            ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                    android.R.layout.simple_spinner_item, list);
-            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner_distrito.setAdapter(dataAdapter);
-        } catch (Exception e) {
-            Intent intent_Ingresar = new Intent(this.getApplicationContext(), ActivityPacientesNuevo.class);
-            startActivity(intent_Ingresar);
-            finish();
-        }
-    }
-
-
 
 
 }

@@ -43,15 +43,20 @@ public class ActivityCitasVista extends CommonCode {
         int activo = getIntent().getIntExtra("activo",0);
 
         paciente_nombre = paciente + " " + apellido1paciente + " " + apellido2paciente;
-        medico_nombre = medico + " " + apellido1medico + " " + apellido2medico;
+
+        if(medico == "Administrador"){
+            medico_nombre = medico;
+        }
+        else{
+            medico_nombre = medico + " " + apellido1medico + " " + apellido2medico;
+        }
 
         TextView txtPaciente = (TextView) findViewById(R.id.text_data_RegistrarPaciente_name);
         TextView txtMedico = (TextView) findViewById(R.id.text_data_RegistrarMedico_name);
         TextView txtFecha = (TextView) findViewById(R.id.text_data_RegistrarCita_date);
         TextView txtHora = (TextView) findViewById(R.id.text_data_RegistrarCita_hour);
 
-        correo = (Button) findViewById(R.id.button_RecordatorioCita);
-        correo.setOnClickListener(this);
+
 
 
         txtPaciente.setText(paciente_nombre);
@@ -61,21 +66,5 @@ public class ActivityCitasVista extends CommonCode {
 
     }
 
-    @Override
-    public void onClick(View v) {
-        super.onClick(v);
-        switch (v.getId()){
-            case R.id.button_RecordatorioCita:
-                Intent intent= new Intent(getApplicationContext(),ActivityCitasRecordatorio.class);
-                intent.putExtra("id",id);
-                intent.putExtra("fecha", fecha);
-                intent.putExtra("hora", hora);
-                intent.putExtra("paciente",paciente_nombre);
-                intent.putExtra("medico",medico_nombre);
-                startActivity(intent);
-
-                break;
-        }
-    }
 
 }

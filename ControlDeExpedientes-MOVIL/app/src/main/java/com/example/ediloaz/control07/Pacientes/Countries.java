@@ -41,6 +41,8 @@ public class Countries {
         this.distrito = pDistrito;
     }
 
+
+
     public Countries(String pProvincia, String pCanton, String pDistrito) {
         this.provincia = pProvincia;
         this.canton = pCanton;

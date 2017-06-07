@@ -63,6 +63,7 @@ public class dbCitasPorFechaActual extends AsyncTask<String, Integer, String> {
 
     @Override
     protected void onPreExecute() {
+
         super.onPreExecute();
         progressBar.setVisibility(View.VISIBLE);
         progressBar.setIndeterminate(true);

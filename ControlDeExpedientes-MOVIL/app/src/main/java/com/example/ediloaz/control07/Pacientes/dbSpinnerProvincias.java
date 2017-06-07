@@ -71,7 +71,7 @@ public class dbSpinnerProvincias extends AsyncTask<String, Integer, String> {
             Log.w("LoginActivity", "Conexión");
 
             PreparedStatement stmt;
-            id_medico = Integer.parseInt(medico.get(SessionManager.KEY_ID));
+
             stmt = conn.prepareStatement("SELECT DISTINCT province FROM countries;");
 
             ResultSet rs = stmt.executeQuery();

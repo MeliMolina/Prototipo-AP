@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesBuscar;
 import com.example.ediloaz.control07.Enfermedades.ActivityEnfermedadesInicio;
@@ -31,7 +32,7 @@ public class dbCitasPorFecha extends AsyncTask<String, Integer, String> {
 
     private ProgressBar progressBar;
     private final Activity activity;
-
+    public boolean correctFinished;
 
     public dbCitasPorFecha(Activity pActivity, ProgressBar pProgressBar,String pFecha){
         matriz_datos = new ArrayList<Cita>();
@@ -69,6 +70,7 @@ public class dbCitasPorFecha extends AsyncTask<String, Integer, String> {
     @Override
     protected String doInBackground(String... params) {
         try {
+
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(
                     "jdbc:mysql://mysql.freehostia.com:3306/kenqui_expctlr", "kenqui_expctlr", "adminexpctlr");
@@ -110,6 +112,7 @@ public class dbCitasPorFecha extends AsyncTask<String, Integer, String> {
                 matriz_datos.add(cita);
                 Log.v("Aviso: ",mensaje);
             }
+
             conn.close();
 
         }catch (Exception e){

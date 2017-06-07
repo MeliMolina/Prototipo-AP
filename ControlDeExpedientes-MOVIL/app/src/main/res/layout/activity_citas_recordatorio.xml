@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_citas_nuevo2"
+    android:id="@+id/activity_citas_recordatorio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context="com.example.ediloaz.control07.Citas.ActivityCitasNuevo2">
+    tools:context="com.example.ediloaz.control07.Citas.Activity_Citas_Recordatorio">
 
     <include layout="@layout/dashboard"/>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,7 +22,7 @@
                 android:gravity="center">
                 <TextView
                     android:id="@+id/text_EditarCita_title"
-                    android:text="Enviar recordatorio de cita"
+                    android:text="Configurar recordatorio de cita"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="30sp"
@@ -43,60 +36,103 @@
 
             </LinearLayout>
 
+
             <!--Espacio en el top-->
-
-
-
-            <!--Fecha y hora-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="30dp"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:layout_marginTop="70dp"
                 >
+
                 <LinearLayout
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_width="650dp"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center_vertical"
+                    android:orientation="horizontal"
                     >
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="600dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <EditText
-                        android:id="@+id/edit_mensajeEmail"
-                        android:layout_width="match_parent"
+                    <!--Buscar-->
+                    <TextView
+                        android:text="Días:"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Mensaje a enviar"
+                        android:id="@+id/text_Dias"
+                        android:paddingLeft="80dp"
+                        android:layout_marginTop="0dp"
+                        android:textSize="18dp"
+                        />
+
+                    />
+
+                    <Spinner
+                        android:id="@+id/spinner_dias"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/country_arrays"
+                        android:prompt="@string/country_prompt"
+                        android:paddingLeft="40dp"
+                        android:layout_marginLeft="0dp"
+                        />
+
+                    <Button
+                        android:id="@+id/button_SeleccionarHora"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Seleccionar hora"
+                        android:onClick="timePicker"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:textAllCaps="false"
+                        android:background="@drawable/button_blue"
+                        android:textColor="#FFFFFF"
                         android:textSize="18sp"
-                        android:ems="10"
-                        android:inputType="textMultiLine"
-                        android:lines="10"
-                        android:scrollbars="vertical"/>
+                        android:layout_marginLeft="30dp"/>
+
+                    <TextView
+                        android:text="Hora:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/text_Hora"
+                        android:paddingLeft="80dp"
+                        android:layout_marginTop="0dp"
+                        android:textSize="18dp"/>
+                    />
+
+
                 </LinearLayout>
+
             </LinearLayout>
+
+
+
+            <!--Fecha y hora-->
+
 
             <!--Botón de registrar-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginTop="40dp"
                 android:orientation="horizontal"
                 android:gravity="center">
                 <Button
-                    android:id="@+id/button_EnviarRecordatorio"
-                    android:text="Enviar"
+                    android:id="@+id/button_Aceptar"
+                    android:text="Aceptar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAllCaps="false"
+                    android:onClick="onClick"
                     android:background="@drawable/button_blue"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"/>
 
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+
 
 </LinearLayout>

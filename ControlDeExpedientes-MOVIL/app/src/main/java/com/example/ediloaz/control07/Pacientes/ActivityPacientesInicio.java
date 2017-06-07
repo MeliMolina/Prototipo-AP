@@ -115,6 +115,7 @@ public class ActivityPacientesInicio extends CommonCode {
                     intent.putExtra("nacimiento", paciente.getNacimiento());
                     intent.putExtra("fallecimiento", paciente.getFallecimiento());
                     intent.putExtra("sexo", paciente.getSexo());
+                    intent.putExtra("sexo", paciente.getSexo());
                     startActivity(intent);
                 }
             });

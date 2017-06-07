@@ -124,12 +124,17 @@
             android:name=".Citas.ActivityCitasBuscar"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".Citas.ActivityCitasRecordatorio"
+            android:name=".Citas.Activity_Citas_Recordatorio"
             android:screenOrientation="landscape" />
 
         <activity
             android:name=".Citas.ActivityBuscarCitasVista"
             android:screenOrientation="landscape" />
+
+        <service android:name=".Citas.MyAlarmService"
+            android:enabled="true" />
+
+        <receiver android:name=".Citas.MyReceiver"/>
 
         <activity
             android:name=".Estadisticas.Activity_PacientesPorEnfermedad"
@@ -137,6 +142,53 @@
 
         <activity
             android:name=".Estadisticas.ActivityPrueba"
+            android:screenOrientation="landscape" />
+
+        <activity
+        android:name=".Estadisticas.Activity_Mujeres_Hombres"
+        android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".Estadisticas.Activity_Estadisticas_Hombres"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".Estadisticas.Activity_Estadisticas_Mujeres"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".Estadisticas.Activity_Enfermedades_Alajuela"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".Estadisticas.Activity_Enfermedades_Cartago"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Estadisticas.Activity_Enfermedades_Guanacaste"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".Estadisticas.Activity_Enfermedades_Heredia"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".Estadisticas.Activity_Enfermedades_Limon"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".Estadisticas.Activity_Enfermedades_Puntarenas"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".Estadisticas.Activity_Enfermedades_SJ"
+            android:screenOrientation="landscape" />
+
+
+        <activity
+            android:name=".Estadisticas.Activity_Estadisticas_Por_Lugar"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".Estadisticas.Activity_Estadisticas"
             android:screenOrientation="landscape" />
 
 

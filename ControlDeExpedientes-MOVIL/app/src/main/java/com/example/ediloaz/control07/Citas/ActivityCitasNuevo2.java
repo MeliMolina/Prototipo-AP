@@ -44,8 +44,6 @@ public class ActivityCitasNuevo2 extends CommonCode {
 
 
         id =  getIntent().getIntExtra("id",0);
-
-
         edit_fecha.setText(fecha);
         edit_hora.setText(hora);
 

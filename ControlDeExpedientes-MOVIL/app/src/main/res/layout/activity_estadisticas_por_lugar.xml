@@ -16,91 +16,373 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
 
-            <!--Espacio en el top-->
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0dp" />
-            <TextView
-                android:id="@+id/text_MedicoBuscar_title"
-                android:text="Estadísticas de enfermedades"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:paddingLeft="50dp"
-                />
-
+            <!--Título-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="left|center_vertical"
-                android:paddingLeft="34dp"
-                android:paddingRight="34dp"
-                android:layout_marginTop="19dp"
-                >
-
+                android:orientation="vertical"
+                android:gravity="center">
                 <TextView
-                    android:text="Buscar estadísticas por provincia:"
+                    android:id="@+id/text_EditarCita_title"
+                    android:text="Estadísticas por Provincia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/text_Nombre"
-                    android:paddingLeft="30dp"
-                    android:layout_marginTop="0dp"/>
-                />
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:layout_marginBottom="10dp"/>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#737373" />
 
             </LinearLayout>
 
-            <!--Título LISTA DE PACIENTES y botones NUEVO y BUSCAR-->
+            <!--Formulario-->
+            <!--Imagen, fila #1 y fila #2-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="left|center_vertical"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="16dp"
-                >
-
-
+                android:gravity="center_horizontal"
+                android:layout_marginTop="20dp">
+                <!--Imagen del médico-->
+                <!--<ImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/contact_image_doctor"/>-->
+                <!--Fila #1 y fila #2-->
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="left|center_vertical"
-                    >
-                    <!--Buscar-->
-                    <Spinner
-                        android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="left">
+
+                    <LinearLayout
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
-                        android:id="@+id/spinner_nombre_Paciente_list"
-                        android:layout_weight="1"
-                        android:entries="@array/country_arrays"
-                        android:prompt="@string/country_prompt"
-                        android:layout_marginLeft="20dp"
-
-                        />
-                    <Button
-                        android:id="@+id/button_Buscar_Citas"
-                        android:background="@drawable/button_blue"
-                        android:textColor="#FFFFFF"
-                        android:text="@string/button_buscar"
-                        android:layout_width="120dp"
+                        android:orientation="vertical"
+                        android:gravity="left">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAllCaps="false"
-                        android:textSize="18sp"
-                        android:layout_marginLeft="30dp"/>
+                        android:orientation="vertical"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp">
+
+                        <LinearLayout
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="left">
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="left"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:id="@+id/text_SanJose"
+                            android:text="San José"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="110dp"/>
+                        <LinearLayout
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                            <Button
+                                android:id="@+id/button_sanjose"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="30dp"
+                                android:background="@drawable/button_blue"
+                                android:onClick="onClick"
+                                android:text="Ver gráfica"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text_Alajuela"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:text="Alajuela"
+                            android:textSize="20sp"
+                            android:layout_marginLeft="119dp"/>
+
+                        <LinearLayout
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/button_alajuela"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/button_blue"
+                                android:onClick="onClick"
+                                android:text="Ver Gráfica"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:layout_marginLeft="30dp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
 
 
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text_cartago"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:text="Cartago"
+                            android:textSize="20sp"
+                            android:layout_marginLeft="119dp"/>
+
+                        <LinearLayout
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/button_cartago"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/button_blue"
+                                android:onClick="onClick"
+                                android:text="Ver Gráfica"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:layout_marginLeft="30dp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text_heredia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:text="Heredia"
+                            android:textSize="20sp"
+                            android:layout_marginLeft="119dp"/>
+
+                        <LinearLayout
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/button_heredia"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/button_blue"
+                                android:onClick="onClick"
+                                android:text="Ver Gráfica"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:layout_marginLeft="30dp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text_limon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:text="Limón"
+                            android:textSize="20sp"
+                            android:layout_marginLeft="119dp"/>
+
+                        <LinearLayout
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/button_limon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/button_blue"
+                                android:onClick="onClick"
+                                android:text="Ver Gráfica"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:layout_marginLeft="30dp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text_puntarenas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:text="Puntarenas"
+                            android:textSize="20sp"
+                            android:layout_marginLeft="100dp"/>
+
+                        <LinearLayout
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/button_puntarenas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/button_blue"
+                                android:onClick="onClick"
+                                android:text="Ver Gráfica"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:layout_marginLeft="30dp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text_guanacaste"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:text="Guanacaste"
+                            android:textSize="20sp"
+                            android:layout_marginLeft="100dp"/>
+
+                        <LinearLayout
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/button_guanacaste"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/button_blue"
+                                android:onClick="onClick"
+                                android:text="Ver Gráfica"
+                                android:textAllCaps="false"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp"
+                                android:layout_marginLeft="30dp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
-
             </LinearLayout>
         </LinearLayout>
-
-
-
     </ScrollView>
-
 </LinearLayout>
+

@@ -1,8 +1,12 @@
 package com.example.ediloaz.control07.Estadisticas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
+import com.example.ediloaz.control07.CommonCode;
 import com.example.ediloaz.control07.R;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -17,8 +21,10 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Activity_PacientesPorEnfermedad extends AppCompatActivity {
+public class Activity_PacientesPorEnfermedad extends CommonCode {
     BarChart barchart;
+
+
     float rainfall [] = {98.8f,123.8f,161.6f,24.2f,52f,58.2f,35.4f,13.8f,78.4f,203.4f,240.2f,159.7f};
     String monthnames [] = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
 
@@ -35,10 +41,11 @@ public class Activity_PacientesPorEnfermedad extends AppCompatActivity {
         entries.add(new BarEntry(1f, 3));
         entries.add(new BarEntry(2f, 4));
         entries.add(new BarEntry(6f, 5));
-        entries.add(new BarEntry(3f, 6));
+
+        /*entries.add(new BarEntry(3f, 6));
         entries.add(new BarEntry(3f, 7));
         entries.add(new BarEntry(1f, 8));
-        entries.add(new BarEntry(2f, 9));
+        entries.add(new BarEntry(2f, 9));*/
 
         BarDataSet dataset = new BarDataSet(entries, "Enfermedades");
 
@@ -49,12 +56,12 @@ public class Activity_PacientesPorEnfermedad extends AppCompatActivity {
         labels.add("Agorafobia");
         labels.add("Hepatitis B");
         labels.add("Cáncer de Esófago");
-        labels.add("Diabetes ");
+        /*labels.add("Diabetes ");
         labels.add("Tumor Lóbulo Frontal Izquierdo");
         labels.add("Alergia al Polvo");
-        labels.add("Gripe");
+        labels.add("Gripe");*/
 
-        dataset.setColors(ColorTemplate.COLORFUL_COLORS);
+        dataset.setColors(ColorTemplate.PASTEL_COLORS);
 
         BarData data = new BarData(labels, dataset);
         barchart.setData(data);
@@ -64,6 +71,22 @@ public class Activity_PacientesPorEnfermedad extends AppCompatActivity {
         //setupPieChart();
 
     }
+
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()){
+            case R.id.button_Regresar:
+                Intent intent_regresar = new Intent(this.getApplicationContext(), Activity_Estadisticas.class);
+                startActivity(intent_regresar);
+                finish();
+
+
+
+                break;
+
+        }
+    }
+
     /*private void setupPieChart(){
         List<PieEntry> pieEntries = new ArrayList<>();
         for(int i = 0; i<rainfall.length; i++){

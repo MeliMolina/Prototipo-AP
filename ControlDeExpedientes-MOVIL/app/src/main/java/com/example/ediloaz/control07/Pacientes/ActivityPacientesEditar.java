@@ -87,6 +87,7 @@ public class ActivityPacientesEditar extends ActionBarActivity implements View.O
         nacionalidad = getIntent().getStringExtra("nacionalidad");
         nacimiento = getIntent().getStringExtra("nacimiento");
         fallecimiento = getIntent().getStringExtra("fallecimiento");
+
         sexo = getIntent().getStringExtra("sexo");
         id = getIntent().getIntExtra("id", 0);
         Log.i("w_w_w_w_W_W_w__W_W_", "3");
@@ -114,7 +115,6 @@ public class ActivityPacientesEditar extends ActionBarActivity implements View.O
 
 
         Log.i("w_w_w_w_W_W_w__W_W_", "4");
-
         editCedula.setText(cedula);
         editNombre.setText(nombre);
         editApellido1.setText(apellido1);

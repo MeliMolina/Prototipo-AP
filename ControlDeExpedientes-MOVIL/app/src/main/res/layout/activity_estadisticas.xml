@@ -19,18 +19,39 @@
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
 
-            <!--Espacio en el top-->
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0dp" />
-            <TextView
-                android:id="@+id/text_MedicoBuscar_title"
-                android:text="Estadísticas de enfermedades"
-                android:layout_width="wrap_content"
+            <!--Título-->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
-                android:paddingLeft="50dp"
-                />
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/text_EditarCita_title"
+                    android:text="Estadísticas "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:textAlignment="center"
+                    android:layout_marginBottom="10dp"/>
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="#737373" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="34dp"
+                android:paddingRight="34dp"
+                android:layout_marginTop="70dp"
+                >/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,13 +64,35 @@
                 >
 
                 <TextView
-                    android:text="Buscar estadísticas por:"
+                    android:text="Estadísticas por paciente"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/text_Nombre"
-                    android:paddingLeft="30dp"
+                    android:paddingLeft="0dp"
+                    android:textSize="15sp"
                     android:layout_marginTop="0dp"/>
                 />
+                <TextView
+                    android:text="Enfermedades por género"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text_PrimerApellido"
+                    android:paddingLeft="70dp"
+                    android:layout_marginTop="0dp"
+                    android:textSize="15sp"/>
+                />
+                <TextView
+                    android:text="Enfermedades por provincia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text_SegundoApellido"
+                    android:paddingLeft="60dp"
+                    android:layout_marginTop="0dp"
+                    android:textSize="15sp"/>
+                />
+
+
+
 
             </LinearLayout>
 
@@ -61,7 +104,7 @@
                 android:gravity="left|center_vertical"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 >
 
 
@@ -72,26 +115,48 @@
                     android:gravity="left|center_vertical"
                     >
                     <!--Buscar-->
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/spinner_estadistica"
-                        android:layout_weight="1"
-                        android:entries="@array/country_arrays"
-                        android:prompt="@string/country_prompt"
-                        android:layout_marginLeft="20dp"
 
-                        />
-                    <Button
-                        android:id="@+id/button_Buscar_Citas"
-                        android:background="@drawable/button_blue"
+
+
+                    <ImageButton
+                        android:id="@+id/button_estadisticas_paciente"
+                        android:background="@drawable/boton_graficas4"
                         android:textColor="#FFFFFF"
                         android:text="@string/button_buscar"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
                         android:textAllCaps="false"
                         android:textSize="18sp"
-                        android:layout_marginLeft="30dp"/>
+                        android:clickable="true"
+                        android:onClick="onClick"
+                        android:layout_marginLeft="0dp"/>
+
+
+                    <ImageButton
+                        android:id="@+id/button_estadisticas_genero"
+                        android:background="@drawable/boton_graficas4"
+                        android:textColor="#FFFFFF"
+                        android:text="@string/button_buscar"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        android:clickable="true"
+                        android:onClick="onClick"
+                        android:layout_marginLeft="100dp"/>
+
+                    <ImageButton
+                        android:id="@+id/button_estadisticas_lugar"
+                        android:background="@drawable/boton_graficas4"
+                        android:textColor="#FFFFFF"
+                        android:text="@string/button_buscar"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        android:clickable="true"
+                        android:onClick="onClick"
+                        android:layout_marginLeft="100dp"/>
 
 
                 </LinearLayout>

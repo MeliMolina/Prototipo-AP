@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class dbPacientesNuevo extends AsyncTask<String, Integer, String> {
 
     Connection conn;
-    private String name, lastname1, lastname2, banknote, email, address, telephone, nationality, sex, birth, death,province, canton, district;
+    private String name, lastname1, lastname2, banknote, email, address, telephone, nationality, sex, birth, death;
     private String messageFinished;
     public boolean correctFinished;
     private int count;
@@ -33,7 +33,7 @@ public class dbPacientesNuevo extends AsyncTask<String, Integer, String> {
     private SessionManager session;
     private HashMap<String, String> medico;
 
-    public dbPacientesNuevo(ActivityPacientesNuevo pActivity, ProgressBar pProgressBar, String pName, String pLastname1, String pLastname2, String pBanknote, String pEmail, String pAddress, String pTelephone, String pNationality, String pSex, String pBirth, String pDeath, String pProvince, String pCanton, String pDistrict){
+    public dbPacientesNuevo(ActivityPacientesNuevo pActivity, ProgressBar pProgressBar, String pName, String pLastname1, String pLastname2, String pBanknote, String pEmail, String pAddress, String pTelephone, String pNationality, String pSex, String pBirth, String pDeath){
         name = pName;
         lastname1 = pLastname1;
         lastname2 = pLastname2;
@@ -45,9 +45,6 @@ public class dbPacientesNuevo extends AsyncTask<String, Integer, String> {
         sex = pSex;
         birth = pBirth;
         death = pDeath;
-        province = pProvince;
-        canton = pCanton;
-        district = pDistrict;
 
         activity = pActivity;
         progressBar = pProgressBar;
@@ -109,7 +106,7 @@ public class dbPacientesNuevo extends AsyncTask<String, Integer, String> {
                 correctFinished = false;
                 messageFinished = "Todos los campos son obligatorios";
             }else{
-                stmt = conn.prepareStatement("INSERT INTO pacientes( created_at, updated_at, fechaNacimiento, nombre, apellido1, apellido2, cedula, nacionalidad, sexo, fechaFallecimiento,province,canton,district) VALUES (NOW(), NOW(), '" + birth + "', '" + name+ "','" + lastname1 + "','" + lastname2 + "','" + banknote + "','" + nationality + "','" + sex + "','" + death + "','" + province + "','"+ canton + "','" + district +"');");
+                stmt = conn.prepareStatement("INSERT INTO pacientes( created_at, updated_at, fechaNacimiento, nombre, apellido1, apellido2, cedula, nacionalidad, sexo, fechaFallecimiento) VALUES (NOW(), NOW(), '" + birth + "', '" + name+ "','" + lastname1 + "','" + lastname2 + "','" + banknote + "','" + nationality + "','" + sex + "','" + death + "');");
                 Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Consulta creada");
                 stmt.executeUpdate();
                 Log.w("_A_A_A_A_A_A_A_A_A_A_A_", "Consulta realizada");

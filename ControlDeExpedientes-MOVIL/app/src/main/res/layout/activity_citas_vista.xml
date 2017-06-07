@@ -189,15 +189,6 @@
                         android:layout_marginTop="@dimen/activity_vertical_margin"
                         >
 
-                        <Button
-                            android:id="@+id/button_RecordatorioCita"
-                            android:background="@drawable/button_blue"
-                            android:textColor="#FFFFFF"
-                            android:text="Enviar recordatorio de cita"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAllCaps="false"
-                            android:textSize="18sp" />
 
 
 

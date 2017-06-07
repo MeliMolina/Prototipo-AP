@@ -4,6 +4,7 @@ package com.example.ediloaz.control07.Citas;
  * Created by Administrador on 19/05/2017.
  */
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -55,9 +56,16 @@ public class dbApellido1PacientesSpinner extends AsyncTask<String, Integer, Stri
     private SessionManager session;
     HashMap<String, String> medico;
 
-    public dbApellido1PacientesSpinner(int pId){
+    private final Activity activity;
+
+    public dbApellido1PacientesSpinner(Activity pActivity,int pId){
         id_paciente = pId;
         matriz_datos = new ArrayList<Paciente>();
+
+        activity = pActivity;
+
+        session = new SessionManager(activity);
+        medico = getSession().getUserDetails();
     }
 
     @Override
